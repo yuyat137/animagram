@@ -1,5 +1,8 @@
 # README
 
+E-R図
+https://drive.google.com/file/d/1MhNltq0X7Lv_vZL5ZCcx1gwykdbzcwiW/view?usp=sharing
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
