@@ -49,40 +49,38 @@ Lint/StructNewOverride:
 
 Layout/LineLength:
   Max: 150
-  Exclude:
-    - "app/controllers/line_bot_controller.rb"
 
 Metrics/AbcSize:
   Max: 25
-  Exclude:
-    - "app/controllers/line_bot_controller.rb"
 
 Metrics/BlockLength:
   CountComments: false
   Exclude:
     - "config/routes.rb"
     - "spec/**/*"
-    - "app/controllers/line_bot_controller.rb"
 
 Metrics/ClassLength:
   CountComments: false
   Exclude:
-    - "app/controllers/line_bot_controller.rb"
+
 
 Metrics/PerceivedComplexity:
   CountComments: false
-  Exclude:
-    - "app/controllers/line_bot_controller.rb"
 
 Metrics/CyclomaticComplexity:
   CountComments: false
-  Exclude:
-    - "app/controllers/line_bot_controller.rb"
 
 Metrics/MethodLength:
   Max: 30
-  Exclude:
-    - "app/controllers/line_bot_controller.rb"
+
+Metrics/PerceivedComplexity:
+  CountComments: false
+
+Metrics/CyclomaticComplexity:
+  CountComments: false
+
+Metrics/MethodLength:
+  Max: 30
 
 Metrics/ModuleLength:
   CountComments: false
