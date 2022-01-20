@@ -52,7 +52,6 @@ Layout/LineLength:
 
 Metrics/AbcSize:
   Max: 25
-  Exclude:
 
 Metrics/BlockLength:
   CountComments: false
@@ -63,6 +62,16 @@ Metrics/BlockLength:
 Metrics/ClassLength:
   CountComments: false
   Exclude:
+
+
+Metrics/PerceivedComplexity:
+  CountComments: false
+
+Metrics/CyclomaticComplexity:
+  CountComments: false
+
+Metrics/MethodLength:
+  Max: 30
 
 Metrics/PerceivedComplexity:
   CountComments: false
