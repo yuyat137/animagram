@@ -48,6 +48,7 @@ group :development do
   gem 'rubocop-rspec', require: false
   gem 'pry-rails'
   gem 'debug'
+  gem 'annotate'
 end
 
 group :test do
