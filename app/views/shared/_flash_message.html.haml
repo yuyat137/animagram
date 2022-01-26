@@ -1,0 +1,4 @@
+.notifications
+  - flash.each do |key, value|
+    .bg-blue-100.border.border-blue-500.text-blue-700.px-4.py-3.rounded.mx-10.my-10
+      = content_tag(:div, value, class: key)
