@@ -20,5 +20,17 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validation' do
+    it 'is valid with all attributes' do
+      article = build(:article)
+      expect(article).to be_valid
+      expect(article.errors).to be_empty
+    end
+
+    it 'is invalid without title' do
+      article_without_title = build(:article, title: "")
+      expect(article_without_title).to be_invalid
+      expect(article_without_title.errors[:title]).to_eq ["can't be blank"]
+    end
+  end
 end
