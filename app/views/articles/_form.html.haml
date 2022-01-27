@@ -1,0 +1,10 @@
+= form_with model: @article, local:true do |f|
+  .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.ml-8.py-6
+    = f.label :title, 'Title'
+    = f.text_field :title
+  .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.ml-8.py-6
+    = f.label :description, 'Description'
+    %br
+    = f.text_area :description, :size=>"40x20"
+  .bg-blue-500.hover:bg-blue-700.text-white.font-bold.text-center.rounded-full.w-20.mt-8.mx-auto
+    = f.submit 'Register'

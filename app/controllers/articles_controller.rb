@@ -4,4 +4,27 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all.includes(:user).order(created_at: :desc)
   end
+
+  def new
+    @article = Article.new
+  end
+
+  def create
+    @article = current_user.articles.build(article_params)
+    if @article.save
+      redirect_to articles_path, notice: '写真をアップしました'
+    else
+      flash.now['danger'] = '写真のアップに失敗しました'
+      render :new
+    end
+  end
+
+  def show
+    @board = Board.find(params[:id])
+  end
+
+  private
+  def article_params
+    params.require(:article).permit(:title, :description)
+  end
 end
