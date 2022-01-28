@@ -19,7 +19,8 @@
 #
 FactoryBot.define do
   factory :article do
-    title { "MyString" }
-    description { "MyText" }
+    sequence(:title) { |n| "タイトル#{n}" }
+    description { "content" }
+    user
   end
 end
