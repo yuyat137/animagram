@@ -1,0 +1,5 @@
+= render @article
+
+= render 'comments/comments', { comments: @comments }
+
+= render 'comments/form', { article: @article, comment: @comment }

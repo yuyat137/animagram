@@ -1,6 +1,10 @@
 - if current_user.own?(comment)
-  %ul
-    %li
-      = comment.user.name
-      = comment.body
-      = comment.id
+  %section.mt-1.grid.md:grid-cols-2.lg:grid-cols-4.gap-x-6.gap-y-8.mx-4
+    %article.bg-blue-100.group.relative.rounded-lg.overflow-hidden.shadow-lg.transform.duration-200
+      .flex-grow
+        %ul
+          %li
+            %h3.text-indigo-500.inline-flex.items-center.ml-4
+              = comment.user.name
+            %h2.text-gray-900.text-lg.title-font.font-medium.mb-3.ml-4
+              = comment.body
