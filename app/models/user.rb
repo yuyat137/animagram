@@ -24,4 +24,8 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :articles, dependent: :destroy
+
+  def own?(object)
+    id == object.user_id
+  end
 end
