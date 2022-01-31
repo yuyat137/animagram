@@ -1,0 +1,6 @@
+- if current_user.own?(comment)
+  %ul
+    %li
+      = comment.user.name
+      = comment.body
+      = comment.id
