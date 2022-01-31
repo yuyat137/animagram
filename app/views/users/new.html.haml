@@ -2,7 +2,7 @@
   %main.flex-grow.bg-blue-100.bg-white.rounded.overflow-hidden.shadow-lg.p-8.rounded-lg.mx-8.my-8
     = form_with model: @user, local:true do |f|
       .bg-white.rounded.border.border-blue-500
-        = render 'shared/error_messages', model: f.object
+        = render 'shared/error_messages', object: f.object
       .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.ml-12.py-6
         = f.label :name, 'Nickname'
         = f.text_field :name
