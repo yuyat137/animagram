@@ -18,9 +18,10 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Article < ApplicationRecord
-  validates :title, presence: true, length: { maximum: 50 }
-  validates :description, length: { maximum: 300 }
-
+  has_many_attached :images
   has_many :comments, dependent: :destroy
   belongs_to :user
+
+  validates :title, presence: true, length: { maximum: 50 }
+  validates :description, length: { maximum: 300 }
 end
