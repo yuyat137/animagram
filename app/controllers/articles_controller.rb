@@ -20,7 +20,9 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @board = Board.find(params[:id])
+    @article = Article.find(params[:id])
+    @comment = Comment.new
+    @comments = @article.comments.includes(:user).order(created_at: :desc)
   end
 
   private
