@@ -1,9 +1,12 @@
 = form_with model: @article, local:true do |f|
   .bg-white.rounded.border.border-blue-500
-    = render 'shared/error_messages', model: f.object
+    = render 'shared/error_messages', object: f.object
   .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.ml-8.py-6
     = f.label :title, 'Title'
     = f.text_field :title
+  .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.ml-8.py-6
+    = f.label :images
+    = f.file_field :images ,multiple: true
   .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.ml-8.py-6
     = f.label :description, 'Description'
     %br
