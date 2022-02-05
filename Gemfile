@@ -28,6 +28,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'hamlit-rails'
 gem 'pg'
 gem 'sorcery'
+gem 'aws-sdk-s3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
