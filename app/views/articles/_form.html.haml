@@ -1,16 +1,16 @@
 = form_with model: @article, local:true do |f|
-  .bg-white.rounded.border.border-blue-500
-    = render 'shared/error_messages', object: f.object
-  .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.ml-8.py-6
-    = f.label :title, 'Title'
-    = f.text_field :title
-  .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.ml-8.py-6
+  = render 'shared/error_messages', object: f.object
+  = f.label :title, 'Title'
+  .bg-white.rounded.border.border-blue-500.mb-8
+    .text-center
+      = f.text_area :title, :size=>"60x2"
+  .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.py-6
     = f.label :images
     = f.file_field :images ,multiple: true
-  .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.ml-8.py-6
+  .focus:border-indigo-300.py-6
     = f.label :description, 'Description'
     %br
-    = f.text_area :description, :size=>"40x20"
-  .bg-white.rounded.border.border-blue-500
-  .bg-blue-500.hover:bg-blue-700.text-white.font-bold.text-center.rounded-full.w-20.mt-8.mx-auto
-    = f.submit 'Register'
+    .bg-white.rounded.border.border-blue-500.mb-8.text-center
+      = f.text_area :description, :size=>"60x20"
+    .bg-blue-500.hover:bg-blue-700.text-white.font-bold.text-center.rounded-full.w-20.mt-8.mx-auto
+      = f.submit 'Register'
