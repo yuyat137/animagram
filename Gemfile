@@ -28,7 +28,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'hamlit-rails'
 gem 'pg'
 gem 'sorcery'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
