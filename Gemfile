@@ -28,6 +28,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'hamlit-rails'
 gem 'pg'
 gem 'sorcery'
+gem 'font-awesome-sass'
 gem 'aws-sdk-s3'
 
 group :development, :test do
