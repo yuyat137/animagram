@@ -29,6 +29,7 @@ gem 'hamlit-rails'
 gem 'pg'
 gem 'sorcery'
 gem 'font-awesome-sass'
+gem 'aws-sdk-s3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
