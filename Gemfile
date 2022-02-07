@@ -29,6 +29,7 @@ gem 'hamlit-rails'
 gem 'pg'
 gem 'sorcery'
 gem 'font-awesome-sass'
+gem "mini_magick"
 gem 'aws-sdk-s3', require: false
 gem 'aws-sdk-rekognition'
 
