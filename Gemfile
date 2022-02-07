@@ -31,7 +31,6 @@ gem 'sorcery'
 gem 'font-awesome-sass'
 gem 'aws-sdk-s3', require: false
 gem 'aws-sdk-rekognition'
-gem 'mini_magick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
