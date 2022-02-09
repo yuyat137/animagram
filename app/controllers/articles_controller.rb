@@ -45,7 +45,7 @@ class ArticlesController < ApplicationController
     redirect_to articles_path, notice: '記事を削除しました'
   end
 
-private
+  private
 
   def article_params
     params.require(:article).permit(:title, :description, images: [])
@@ -55,7 +55,7 @@ private
     @article = current_user.articles.find(params[:id])
   end
 
-  def image_rekognition
+  def image_rekognition(object)
     Aws.config.update({
       region: 'ap-northeast-1',
       credentials: Aws::Credentials.new(Rails.application.credentials.aws[:access_key_id], Rails.application.credentials.aws[:secret_access_key])
@@ -65,15 +65,17 @@ private
     @article.images.each do |image|
       @uri = image.service_url
     end
-    @dir = @uri.split("/").fourth
-    @key = @dir.split("?").first
+    dir = @uri.split("/").fourth
+    key = dir.split("?").first
     response = rekognition.detect_labels({
       image: {
         s3_object: {
           bucket: 'photo-app-0207',
-          name: @key
+          name: key
         }
       }
     })
+    first_label = response.labels.first
+    puts("#{first_label.name} #{first_label.confidence}")
   end
 end
