@@ -173,6 +173,7 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mini_magick (4.11.0)
     mini_mime (1.1.2)
     minitest (5.15.0)
     msgpack (1.4.3)
@@ -356,6 +357,7 @@ DEPENDENCIES
   hamlit-rails
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  mini_magick
   pg
   pry-rails
   puma (~> 5.0)

@@ -1,9 +1,8 @@
-= form_with model: @article, local:true do |f|
+= form_with model: article, local: true do |f|
   = render 'shared/error_messages', object: f.object
   = f.label :title, 'Title'
   .bg-white.rounded.border.border-blue-500.mb-8
-    .text-center
-      = f.text_area :title, :size=>"60x2"
+    = f.text_area :title, :size=>"60x2"
   .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.py-6
     = f.label :images
     = f.file_field :images ,multiple: true
