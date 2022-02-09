@@ -1,9 +1,3 @@
-require 'net/https'
-require 'uri'
-require 'json'
-require 'base64'
-require 'aws-sdk-rekognition'
-
 class ArticlesController < ApplicationController
   skip_before_action :require_login, only: %i[index]
   before_action :set_article, only: %i[edit update destroy]
@@ -19,8 +13,8 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(article_params)
     if @article.save
-      @article.images do |image|
-        @article.image.image_rekognition
+      @article.images.each do |image|
+        image_rekognition(image)
       end
       redirect_to articles_path, notice: '記事を作成しました'
     else
@@ -66,6 +60,7 @@ private
       region: 'ap-northeast-1',
       credentials: Aws::Credentials.new(Rails.application.credentials.aws[:access_key_id], Rails.application.credentials.aws[:secret_access_key])
     })
+
     rekognition = Aws::Rekognition::Client.new(region: Aws.config[:region], credentials: Aws.config[:credentials])
     @article.images.each do |image|
       @uri = image.service_url
