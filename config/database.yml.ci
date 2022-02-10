@@ -1,9 +1,0 @@
-test: &default
-  adapter: postgre
-  encoding: utf8
-  pool: 5
-  username: ishidayurie
-  password:
-  host: localhost
-  port: 5000
-  database: MyApp_test
