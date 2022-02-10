@@ -45,11 +45,7 @@ jobs:
           command: bundle exec rubocop
       - run:
           name: Run rspec
-          command: bundle exec rspec --profile 10 \
-            --out test_results/rspec.xml \
-            --format progress \
-            $TEST_FILES
-
+          command: bundle exec rspec
 workflows:
   build_and_test:
     jobs:
