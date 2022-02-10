@@ -16,6 +16,7 @@ AllCops:
     - "spec/**/*"
     - "config/**/*"
     - "test/**/*"
+    - "lib/**/*"
 
 Rails:
   Enabled: true
@@ -47,17 +48,21 @@ Lint/RaiseException:
 Lint/StructNewOverride:
   Enabled: true
 
+Lint/NonLocalExitFromIterator:
+  Enabled: false
+
 Layout/LineLength:
   Max: 150
 
 Metrics/AbcSize:
-  Max: 25
+  Max: 40
 
 Metrics/BlockLength:
   CountComments: false
   Exclude:
     - "config/routes.rb"
     - "spec/**/*"
+    - "lib/**/*"
 
 Metrics/ClassLength:
   CountComments: false

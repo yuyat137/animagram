@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ArticlesController < ApplicationController
-  skip_before_action :require_login, only: %i[index]
-  before_action :set_article, only: %i[edit update destroy]
+  skip_before_action :require_login, only: [:index]
+  before_action :set_article, only: [:edit, :update, :destroy]
 
   def index
     @articles = Article.all.includes(:user).order(created_at: :desc)
@@ -47,35 +49,36 @@ class ArticlesController < ApplicationController
 
   private
 
-  def article_params
-    params.require(:article).permit(:title, :description, images: [])
-  end
-
-  def set_article
-    @article = current_user.articles.find(params[:id])
-  end
-
-  def image_rekognition(object)
-    Aws.config.update({
-      region: 'ap-northeast-1',
-      credentials: Aws::Credentials.new(Rails.application.credentials.aws[:access_key_id], Rails.application.credentials.aws[:secret_access_key])
-    })
-
-    rekognition = Aws::Rekognition::Client.new(region: Aws.config[:region], credentials: Aws.config[:credentials])
-    @article.images.each do |image|
-      @uri = image.service_url
+    def article_params
+      params.require(:article).permit(:title, :description, images: [])
     end
-    dir = @uri.split("/").fourth
-    key = dir.split("?").first
-    response = rekognition.detect_labels({
-      image: {
-        s3_object: {
-          bucket: 'photo-app-0207',
-          name: key
-        }
-      }
-    })
-    first_label = response.labels.first
-    puts("#{first_label.name} #{first_label.confidence}")
-  end
+
+    def set_article
+      @article = current_user.articles.find(params[:id])
+    end
+
+    def image_rekognition(_object)
+      Aws.config.update({
+                          region: 'ap-northeast-1',
+                          credentials: Aws::Credentials.new(Rails.application.credentials.aws[:access_key_id],
+                                                            Rails.application.credentials.aws[:secret_access_key])
+                        })
+
+      rekognition = Aws::Rekognition::Client.new(region: Aws.config[:region], credentials: Aws.config[:credentials])
+      @article.images.each do |image|
+        @uri = image.service_url
+      end
+      dir = @uri.split('/').fourth
+      key = dir.split('?').first
+      response = rekognition.detect_labels({
+                                             image: {
+                                               s3_object: {
+                                                 bucket: 'photo-app-0207',
+                                                 name: key
+                                               }
+                                             }
+                                           })
+      first_label = response.labels.first
+      Rails.logger.debug("#{first_label.name} #{first_label.confidence}")
+    end
 end

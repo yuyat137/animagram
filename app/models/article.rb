@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: articles
@@ -29,28 +31,28 @@ class Article < ApplicationRecord
 
   private
 
-  def image_type
-    images.each do |image|
-      if !image.blob.content_type.in?(%('image/jpeg image/png'))
-        image.purge
-        image.add(:images, 'はjpegまたはpng形式でアップロードしてください')
+    def image_type
+      images.each do |image|
+        unless image.blob.content_type.in?(%('image/jpeg image/png'))
+          image.purge
+          image.add(:images, 'はjpegまたはpng形式でアップロードしてください')
+        end
       end
     end
-  end
 
-  def image_size
-    images.each do |image|
-      if image.blob.byte_size > 5.megabytes
+    def image_size
+      images.each do |image|
+        return unless image.blob.byte_size > 5.megabytes
+
         image.purge
-        errors.add(:images, "は1つのファイル5MB以内にしてください")
+        errors.add(:images, 'は1つのファイル5MB以内にしてください')
       end
     end
-  end
 
-  def image_length
-    if images.length > 5
+    def image_length
+      return unless images.length > 5
+
       images.purge
-      errors.add(:images, "は5枚以内にしてください")
+      errors.add(:images, 'は5枚以内にしてください')
     end
-  end
 end
