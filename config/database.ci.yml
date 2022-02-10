@@ -1,0 +1,9 @@
+test: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  username: animagram
+  password:
+  host: localhost
+  port: 5432
+  database: MyApp_test

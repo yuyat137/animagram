@@ -1,19 +1,19 @@
 default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: ishidayurie
+  username: animagram
   password:
   host: localhost
   timeout: 5000
 
 development:
   <<: *default
-  database: D-photo-app_development
+  database: MyApp_development
 
 test:
   <<: *default
-  database: D-photo-app_test
+  database: MyApp_test
 
 production:
   <<: *default
-  database: D-photo-app
+  database: MyApp
