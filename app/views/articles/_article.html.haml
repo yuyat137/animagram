@@ -5,8 +5,7 @@
       .flex-grow.border-b-2.border-gray-300.py-2.text-lg.px-1.mb-8
       %article.bg-white.group.relative.rounded-lg.overflow-hidden.shadow-lg
         .relative.w-full.h-80.md:h-64.lg:h-44.flex.justify-center.mt-8
-          - article.images.each do |image|
-            = image_tag image
+          = image_tag article.image
         .px-3.py-4
           %h3.text-sm.text-gray-500.pb-2
           %a.bg-pink-400.py-1.px-2.text-white.rounded-lg(href="#")
