@@ -1,6 +1,6 @@
 %section.max-w-7xl.mx-auto.sm:px-6.lg:px-4.mt-12
   %section.mt-6.grid.md:grid-cols-2.lg:grid-cols-4.gap-x-6.gap-y-8
-    %h2.text-2xl.font-extrabold.text-gray-900.text-center.mt-12
+    %h2.text-2xl.font-extrabold.text-gray-600.text-center.mt-12
       = link_to article.title, article_path(article)
       .flex-grow.border-b-2.border-gray-300.py-2.text-lg.px-1.mb-8
       %article.bg-white.group.relative.rounded-lg.overflow-hidden.shadow-lg
@@ -15,15 +15,15 @@
           %a.bg-blue-400.py-1.px-2.text-white.rounded-lg(href="#")
             %span.absolute.inset-0
             シー
-          %p.text-2xl.text-base.font-semibold.text-gray-600.group-hover:text-indigo-600.px-8.py-8
+          %p.text-2xl.text-base.font-semibold.text-green-600.group-hover:text-indigo-600.px-8.py-8
             = safe_join(article.description.split("\n"))
           %p.text-2xl.text-base.font-semibold.text-gray-600.group-hover:text-indigo-600.text-right.mr-4
             = safe_join(article.user.name.split("\n"))
       .flex.flex-wrap.justify-center.my-8
         - if current_user.id == article.user_id
-          .text-2xl.text-gray-800.my-4.mx-4
+          .text-2xl.text-green-800.my-4.mx-4
             = link_to icon("fas", "edit", class: "edit"), edit_article_path(article)
-          .text-2xl.text-gray-800.my-4.mx-4
+          .text-2xl.text-green-800.my-4.mx-4
             = link_to icon("fas", "trash-alt", class: "fa-thin"), article_path(article),
               method: :delete,
               data: { confirm: '削除してよろしいですか?' }
