@@ -21,9 +21,9 @@ jobs:
           RAILS_ENV: test
       - image: circleci/postgres:9.3
         environment:
-          POSTGRES_USER: animagram
+          POSTGRES_USER: ishidayurie
           POSTGRES_HOST_AUTH_METHOD: trust
-          POSTGRES_DB: MyApp_test
+          POSTGRES_DB: a_app_test
     working_directory: ~/animagram
     steps:
       - checkout
