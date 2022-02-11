@@ -20,39 +20,36 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Article < ApplicationRecord
-  has_many_attached :images
+  has_one_attached :image
   has_many :comments, dependent: :destroy
   belongs_to :user
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :description, length: { maximum: 300 }
-#  validates :images, presence: true
+#  validates :image, presence: true
   validate :image_type, :image_size, :image_length
 
   private
 
     def image_type
-      images.each do |image|
-        unless image.blob.content_type.in?(%('image/jpeg image/png'))
-          image.purge
-          image.add(:images, 'はjpegまたはpng形式でアップロードしてください')
-        end
+      unless image.blob.content_type.in?(%('image/jpeg image/png'))
+        image.purge
+        image.add(:image, 'はjpegまたはpng形式でアップロードしてください')
       end
     end
 
     def image_size
-      images.each do |image|
-        return unless image.blob.byte_size > 5.megabytes
+      return unless image.blob.byte_size > 5.megabytes
 
-        image.purge
-        errors.add(:images, 'は1つのファイル5MB以内にしてください')
+      image.purge
+      errors.add(:image, 'は1つのファイル5MB以内にしてください')
       end
     end
 
     def image_length
-      return unless images.length > 5
+      return unless image.length > 5
 
-      images.purge
-      errors.add(:images, 'は5枚以内にしてください')
+      image.purge
+      errors.add(:image, 'は5枚以内にしてください')
     end
 end
