@@ -26,30 +26,29 @@ class Article < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :description, length: { maximum: 300 }
-#  validates :image, presence: true
+#  validates :images, presence: true
   validate :image_type, :image_size, :image_length
 
   private
 
     def image_type
-      unless image.blob.content_type.in?(%('image/jpeg image/png'))
-        image.purge
-        image.add(:image, 'はjpegまたはpng形式でアップロードしてください')
-      end
+      return if image.blob.content_type.in?(%('image/jpeg image/png'))
+
+      image.purge
+      image.add(:images, 'はjpegまたはpng形式でアップロードしてください')
     end
 
     def image_size
       return unless image.blob.byte_size > 5.megabytes
 
       image.purge
-      errors.add(:image, 'は1つのファイル5MB以内にしてください')
-      end
+      errors.add(:images, 'は1つのファイル5MB以内にしてください')
     end
 
     def image_length
-      return unless image.length > 5
+      return unless images.length > 5
 
-      image.purge
-      errors.add(:image, 'は5枚以内にしてください')
+      images.purge
+      errors.add(:images, 'は5枚以内にしてください')
     end
 end
