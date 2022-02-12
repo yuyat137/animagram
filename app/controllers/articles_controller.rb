@@ -13,8 +13,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    image_rekognition(@article.image)
     @article = current_user.articles.build(article_params)
+    image_rekognition(@article.image)
     if @article.save
       redirect_to articles_path, notice: '記事を作成しました'
     else
