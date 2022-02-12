@@ -27,7 +27,7 @@ class Article < ApplicationRecord
   validates :title, presence: true, length: { maximum: 50 }
   validates :description, length: { maximum: 300 }
 #  validates :images, presence: true
-  validate :image_type, :image_size, :image_length
+  validate :image_type, :image_size
 
   private
 
@@ -43,12 +43,5 @@ class Article < ApplicationRecord
 
       image.purge
       errors.add(:images, 'は1つのファイル5MB以内にしてください')
-    end
-
-    def image_length
-      return unless images.length > 5
-
-      images.purge
-      errors.add(:images, 'は5枚以内にしてください')
     end
 end
