@@ -34,14 +34,12 @@ class Article < ApplicationRecord
     def image_type
       return if image.blob.content_type.in?(%('image/jpeg image/png'))
 
-      image.purge
-      image.add(:image, 'はjpegまたはpng形式でアップロードしてください')
+      errors.add(:image, 'はjpegまたはpng形式でアップロードしてください')
     end
 
     def image_size
       return unless image.blob.byte_size > 5.megabytes
 
-      image.purge
       errors.add(:image, 'は1つのファイル5MB以内にしてください')
     end
 end
