@@ -22,5 +22,6 @@ FactoryBot.define do
     sequence(:title) { |n| "タイトル#{n}" }
     description { "content" }
     user
+    images {  Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/text_image.jpeg'), 'image/jpeg') }
   end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
-  skip_before_action :require_login, only: [:index]
+ skip_before_action :require_login, only: [:index]
   before_action :set_article, only: [:edit, :update, :destroy]
 
   def index
