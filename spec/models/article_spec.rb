@@ -22,7 +22,7 @@ require 'rails_helper'
 RSpec.describe Article, type: :model do
   describe 'validation' do
     context 'すべての属性が有効な場合' do
-      it '有効であること' do
+      xit '有効であること' do
         article = build(:article)
         expect(article).to be_valid
         expect(article.errors).to be_empty
@@ -30,7 +30,7 @@ RSpec.describe Article, type: :model do
     end
 
     context 'titleが存在しない場合' do
-      it '無効であること' do
+      xit '無効であること' do
         article_without_title = build(:article, title: '')
         expect(article_without_title).to be_invalid
         expect(article_without_title.errors[:title]).to eq ["can't be blank"]
@@ -38,7 +38,7 @@ RSpec.describe Article, type: :model do
     end
 
     context 'titleが50字以下の場合' do
-      it '有効であること' do
+      xit '有効であること' do
         article = build(:article, title: 'a' * 50)
         expect(article).to be_valid
         expect(article.errors).to be_empty
@@ -46,7 +46,7 @@ RSpec.describe Article, type: :model do
     end
 
     context 'titleが51文字以上の場合' do
-      it '無効であること' do
+      xit '無効であること' do
         article_over_title = build(:article, title: 'a' * 51 )
         expect(article_over_title).to be_invalid
         expect(article_over_title.errors[:title])
@@ -54,7 +54,7 @@ RSpec.describe Article, type: :model do
     end
 
     context 'descriptionが300文字以下の場合' do
-      it '有効であること' do
+      xit '有効であること' do
         article = build(:article, description: 'a' * 300 )
         expect(article).to be_valid
         expect(article.errors).to be_empty
@@ -62,7 +62,7 @@ RSpec.describe Article, type: :model do
     end
 
     context 'descriptionが301文字以上の場合' do
-      it '無効であること' do
+      xit '無効であること' do
         article = build(:article, description: 'a' * 301 )
         expect(article).to be_invalid
         expect(article.errors[:description])
