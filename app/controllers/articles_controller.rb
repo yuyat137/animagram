@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
- skip_before_action :require_login, only: [:index]
+  skip_before_action :require_login, only: [:index]
   before_action :set_article, only: [:edit, :update, :destroy]
 
   def index
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to @article, notice: '記事を更新しました'
     else
-      flash.now[:danger] = '記事の更新に失敗しました'
+      flash.now[:notice] = '記事の更新に失敗しました'
       render :edit
     end
   end
