@@ -22,5 +22,8 @@ FactoryBot.define do
     sequence(:title) { |n| "タイトル#{n}" }
     description { "content" }
     user
+    after(:build) do |article|
+      article.image.attach(io: File.open('spec/fixtures/test_image.jpeg'), filename: 'test_image.jpeg', content_type: 'image/jpeg')
+    end
   end
 end

@@ -1,5 +1,6 @@
-= render @article
+.bg-yellow-100.pt-10
+  = render @article
 
-= render 'comments/comments', { comments: @comments }
+  = render 'comments/comments', { comments: @comments }
 
-= render 'comments/form', { article: @article, comment: @comment }
+  = render 'comments/form', { article: @article, comment: @comment }

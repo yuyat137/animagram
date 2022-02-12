@@ -14,10 +14,8 @@ class ArticlesController < ApplicationController
 
   def create
     @article = current_user.articles.build(article_params)
+    image_rekognition(@article.image)
     if @article.save
-      @article.images.each do |image|
-        image_rekognition(image)
-      end
       redirect_to articles_path, notice: '記事を作成しました'
     else
       flash.now['notice'] = '記事の作成に失敗しました'
@@ -37,7 +35,7 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to @article, notice: '記事を更新しました'
     else
-      flash.now[:danger] = '記事の更新に失敗しました'
+      flash.now[:notice] = '記事の更新に失敗しました'
       render :edit
     end
   end
@@ -50,7 +48,7 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit(:title, :description, images: [])
+      params.require(:article).permit(:title, :description, :image)
     end
 
     def set_article
@@ -65,9 +63,7 @@ class ArticlesController < ApplicationController
                         })
 
       rekognition = Aws::Rekognition::Client.new(region: Aws.config[:region], credentials: Aws.config[:credentials])
-      @article.images.each do |image|
-        @uri = image.service_url
-      end
+      @uri = @article.image.service_url
       dir = @uri.split('/').fourth
       key = dir.split('?').first
       response = rekognition.detect_labels({

@@ -11,14 +11,15 @@
     name: Faker::Name.name,
     email: Faker::Internet.email,
     password: '123456789',
-    password_confirmation: '123456789'
-  )
+    password_confirmation: '123456789')
 end
 
 20.times do |index|
-  Article.create(
+  article = Article.new(
     user: User.offset(rand(User.count)).first,
     title: "タイトル#{index}",
     description: "本文#{index}"
   )
+  article.image.attach(io: File.open(Rails.root.join('app/assets/images/sample_image.jpeg')), filename: 'sample_image.jpeg')
+  article.save
 end
