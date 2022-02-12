@@ -63,4 +63,6 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
   config.include LoginMacros
+  require 'webdrivers/chromedriver'
+  Webdrivers::Chromedriver.required_version = '97.0.4692.71'
 end
