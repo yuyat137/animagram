@@ -18,5 +18,4 @@
         = f.label :password, 'Password'
       .bg-white.rounded.border.border-green-500.mb-8
         = f.password_field :password_confirmation
-      .bg-green-500.hover:bg-green-700.text-white.font-bold.text-center.rounded-full.w-20.mt-8.mx-auto
-        = f.submit 'Register'
+      = f.submit 'Register', class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-auto flex justify-center'
