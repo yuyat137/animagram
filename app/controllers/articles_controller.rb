@@ -14,8 +14,8 @@ class ArticlesController < ApplicationController
 
   def create
     @article = current_user.articles.build(article_params)
-    image_rekognition(@article.image)
     if @article.save
+      image_rekognition(@article.image)
       redirect_to articles_path, notice: '記事を作成しました'
     else
       flash.now['notice'] = '記事の作成に失敗しました'
