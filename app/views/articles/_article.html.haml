@@ -12,7 +12,7 @@
         %p.text-2xl.text-base.font-semibold.text-gray-600.group-hover:text-indigo-600.text-right.mr-8
           = safe_join(article.user.name.split("\n"))
         .flex.flex-wrap.justify-center.my-8
-          - if current_user.own?(article)
+          - if logged_in? && current_user.own?(article)
             .text-2xl.text-yellow-500.my-4.mx-4
               = link_to icon("fas", "edit", class: "edit"), edit_article_path(article)
             .text-2xl.text-yellow-500.my-4.mx-4
