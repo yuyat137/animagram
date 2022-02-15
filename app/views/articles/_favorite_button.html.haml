@@ -1,0 +1,4 @@
+- if logged_in? && current_user.favorite?(article)
+  = render 'unfavorite', { article: article }
+- else
+  = render 'favorite', { article: article }

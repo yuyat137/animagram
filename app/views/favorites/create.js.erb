@@ -1,0 +1,1 @@
+$("#js-unfavorite-button-for-article-<%= @article.id %>").html("<%= j(render('articles/favorite', locals: { article: @article })) %>");
