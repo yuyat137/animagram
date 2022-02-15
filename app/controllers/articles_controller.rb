@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :destroy]
 
   def index
-    @articles = Article.all.includes(%i[user favorites]).order(created_at: :desc)
+    @articles = Article.all.includes([:user, :favorites]).order(created_at: :desc)
   end
 
   def new
