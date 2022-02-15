@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
-  skip_before_action :require_login, only: [:index]
+  skip_before_action :require_login, only: :index
   before_action :set_article, only: [:edit, :update, :destroy]
 
   def index
-    @articles = Article.all.includes(:user).order(created_at: :desc)
+    @articles = Article.all.includes(%i[user favorites]).order(created_at: :desc)
   end
 
   def new
@@ -38,6 +38,11 @@ class ArticlesController < ApplicationController
       flash.now[:notice] = '記事の更新に失敗しました'
       render :edit
     end
+  end
+
+  def favorites
+    @article = current_user.favorite_articles(params[:id])
+    @favorite_articles = @article.includes(:user).order(created_at: :desc)
   end
 
   def destroy

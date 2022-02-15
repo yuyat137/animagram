@@ -2,13 +2,14 @@
 #
 
 Rails.application.routes.draw do
-  get 'favorites/create'
-  get 'favorites/destroy'
   resources :users, only: %i[new create destroy]
   resources :articles do
     resources :comments, only: %i[create destroy], shallow: true
+    collection do
+      get :favorites
+    end
   end
-  resources :favorites, only: %i[index create destroy]
+  resources :favorites, only: %i[create destroy]
 
   root 'articles#index'
   get 'login', to: 'user_sessions#new'
