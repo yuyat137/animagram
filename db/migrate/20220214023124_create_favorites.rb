@@ -5,6 +5,7 @@ class CreateFavorites < ActiveRecord::Migration[6.1]
       t.references :article, foreign_key: true, null: false
 
       t.timestamps
+      t.index [:user_id, :article_id], unique: true
     end
   end
 end

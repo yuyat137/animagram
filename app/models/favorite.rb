@@ -12,8 +12,9 @@
 #
 # Indexes
 #
-#  index_favorites_on_article_id  (article_id)
-#  index_favorites_on_user_id     (user_id)
+#  index_favorites_on_article_id              (article_id)
+#  index_favorites_on_user_id                 (user_id)
+#  index_favorites_on_user_id_and_article_id  (user_id,article_id) UNIQUE
 #
 # Foreign Keys
 #
