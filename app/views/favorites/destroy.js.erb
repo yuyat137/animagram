@@ -1,1 +1,3 @@
-$("#js-favorite-button-for-article-<%= @article.id %>").html("<%= j(render partial: 'articles/unfavorite', locals: { article: @article }) %>");
+console.log('bbbbbbb')
+$("#js-favorite-button-for-article-<%= @article.id %>").replaceWith("<%= j(render partial: 'articles/unfavorite', article: @article) %>");
+console.log('aaaaaa')

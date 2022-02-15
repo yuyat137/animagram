@@ -1,5 +1,5 @@
-= link_to favorites_path(article_id: article.id),
+= link_to favorite_path(current_user.favorites.find_by(article_id: article.id).id),
             id: "js-favorite-button-for-article-#{article.id}",
-            method: :post,
+            method: :delete,
             remote: true do
-  = icon("far", "fa-heart", class: "fa-heart")
+  = icon("fas", "fa-heart", class: "fa-heart")
