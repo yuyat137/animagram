@@ -33,10 +33,6 @@ class User < ApplicationRecord
     id == object.user_id
   end
 
-  def not_own?(object)
-    id != object.user_id
-  end
-
   def favorite(article)
     favorite_articles << article
   end
