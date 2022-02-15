@@ -14,7 +14,7 @@
     password_confirmation: '123456789')
 end
 
-20.times do |index|
+5.times do |index|
   article = Article.new(
     user: User.offset(rand(User.count)).first,
     title: "タイトル#{index}",

@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2022_02_14_023124) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_favorites_on_article_id"
+    t.index ["user_id", "article_id"], name: "index_favorites_on_user_id_and_article_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
