@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
   end
 
   def favorites
-    @article = current_user.favorite_articles(params[:id])
+    @article = current_user.favorite_articles
     @favorite_articles = @article.includes(:user).order(created_at: :desc)
   end
 
