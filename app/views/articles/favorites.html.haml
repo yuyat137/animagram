@@ -1,0 +1,4 @@
+.bg-yellow-100.pt-10
+  - if @favorite_articles.present?
+    - @favorite_articles.each do |article|
+      = render 'article', { article: article }

@@ -1,0 +1,5 @@
+= link_to article_favorite_path(article.id),
+            id: "js-favorite-button-for-article-#{article.id}",
+            method: :post,
+            remote: true do
+  = icon("far", "fa-heart", class: "fa-heart")
