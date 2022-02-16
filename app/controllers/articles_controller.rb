@@ -41,8 +41,7 @@ class ArticlesController < ApplicationController
   end
 
   def favorites
-    @article = current_user.favorite_articles
-    @favorite_articles = @article.includes(:user).order(created_at: :desc)
+    @favorite_articles = @article.current_user.favorite_articles.includes(:user).order(created_at: :desc)
   end
 
   def destroy

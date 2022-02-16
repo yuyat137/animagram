@@ -34,7 +34,7 @@ class User < ApplicationRecord
   end
 
   def favorite(article)
-    favorite_articles << article
+    favorite_articles.create(article_id: article.id)
   end
 
   def unfavorite(article)
