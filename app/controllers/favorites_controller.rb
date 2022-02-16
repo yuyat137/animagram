@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class FavoritesController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
@@ -7,7 +6,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @article = current_user.favorites.find(params[:id]).article
+    @article = Article.find(params[:article_id])
     current_user.unfavorite(@article)
   end
 end

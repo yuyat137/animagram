@@ -34,11 +34,11 @@ class User < ApplicationRecord
   end
 
   def favorite(article)
-    favorite_articles.create(article_id: article.id)
+    favorites.create(article_id: article.id)
   end
 
   def unfavorite(article)
-    favorite_articles.destroy(article)
+    favorites.find_by(article_id: article.id).destroy
   end
 
   def favorite?(article)

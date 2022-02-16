@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     collection do
       get :favorites
     end
+    resource :favorite, only: %i[create destroy]
   end
-  resources :favorites, only: %i[create destroy]
 
   root 'articles#index'
   get 'login', to: 'user_sessions#new'

@@ -1,4 +1,4 @@
-= link_to favorite_path(current_user.favorites.find_by(article_id: article.id).id),
+= link_to article_favorite_path(article.id),
             id: "js-favorite-button-for-article-#{article.id}",
             method: :delete,
             remote: true do
