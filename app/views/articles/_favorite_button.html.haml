@@ -1,4 +1,4 @@
 - if current_user.favorite?(article)
-  = render 'favorite', article: article
+  = render 'articles/favorite', { article: article }
 - else
-  = render 'unfavorite', article: article
+  = render 'articles/unfavorite', { article: article }
