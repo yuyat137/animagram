@@ -40,10 +40,6 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def favorites
-    @favorite_articles = current_user.favorite_articles.includes(:user).order(created_at: :desc)
-  end
-
   def destroy
     @article.destroy!
     redirect_to articles_path, notice: '記事を削除しました'
