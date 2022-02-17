@@ -1,0 +1,41 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.pagination {
+  margin: 20px auto 0;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+  background-color: #ffa570;
+  margin-bottom: 10px;
+  color:#ffffff;
+
+  span {
+    text-align: center;
+    width: 50px;
+
+    :hover {
+      background-color: #ffa570;
+      border-radius: 15px;
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      :hover {
+        background-color: #f3f3f3;
+      }
+    }
+  }
+}
+
+.current {
+  color: #fffc68;
+}
+
+.gap {
+  background-color: white !important;
+}
