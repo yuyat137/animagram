@@ -3,21 +3,28 @@
 
 .pagination {
   margin: 20px auto 0;
-  width: 50%;
   display: flex;
   justify-content: center;
-  border-radius: 15px;
-  background-color: #ffa570;
-  margin-bottom: 10px;
-  color:#ffffff;
+  line-height: 80px;
+  color:#646363;
+  text-align: center;
+  border: 0;
+  display: flex;
+  border-bottom: 1px solid rgb(66, 65, 65);
+  border-top: 1px solid rgb(66, 65, 65);
 
   span {
     text-align: center;
     width: 50px;
 
     :hover {
-      background-color: #ffa570;
-      border-radius: 15px;
+      background-color: rgb(189, 189, 189);
+      border-radius: 50px;
+      width: 50px;
+      height: 50px;
+      position: relative;
+      display: inline-block;
+      line-height: 50px;
     }
 
     a {
@@ -27,13 +34,22 @@
 
       :hover {
         background-color: #f3f3f3;
+        border-radius: 50px;
       }
     }
   }
 }
 
 .current {
-  color: #fffc68;
+  background-color: #f5a7ffd0;
+  margin-top: 16px;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  display: inline-block;
+  position: relative;
+  text-align: center;
 }
 
 .gap {
