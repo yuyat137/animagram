@@ -58,19 +58,16 @@ class ArticlesController < ApplicationController
     def image_rekognition(_object)
       Aws.config.update({
                           region: 'ap-northeast-1',
-                          credentials: Aws::Credentials.new(Rails.application.credentials.aws[:access_key_id],
+                          credentials:  Aws::Credentials.new(Rails.application.credentials.aws[:access_key_id],
                                                             Rails.application.credentials.aws[:secret_access_key])
                         })
 
       rekognition = Aws::Rekognition::Client.new(region: Aws.config[:region], credentials: Aws.config[:credentials])
-      @uri = @article.image.service_url
-      dir = @uri.split('/').fourth
-      key = dir.split('?').first
       response = rekognition.detect_labels({
                                              image: {
                                                s3_object: {
                                                  bucket: 'photo-app-0207',
-                                                 name: key
+                                                 name: @article.image.path
                                                }
                                              }
                                            })
