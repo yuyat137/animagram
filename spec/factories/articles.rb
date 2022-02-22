@@ -4,6 +4,7 @@
 #
 #  id          :bigint           not null, primary key
 #  description :text
+#  image       :string
 #  title       :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -20,10 +21,8 @@
 FactoryBot.define do
   factory :article do
     sequence(:title) { |n| "タイトル#{n}" }
+    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test_image.jpeg')) }
     description { "content" }
     user
-    after(:build) do |article|
-      article.image.attach(io: File.open('spec/fixtures/test_image.jpeg'), filename: 'test_image.jpeg', content_type: 'image/jpeg')
-    end
   end
 end

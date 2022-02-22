@@ -15,11 +15,10 @@
 end
 
 5.times do |index|
-  article = Article.new(
+  article = Article.create!(
     user: User.offset(rand(User.count)).first,
     title: "タイトル#{index}",
-    description: "本文#{index}"
+    description: "本文#{index}",
+    image:File.open("app/assets/images/sample_image.jpeg"),
   )
-  article.image.attach(io: File.open(Rails.root.join('app/assets/images/sample_image.jpeg')), filename: 'sample_image.jpeg')
-  article.save
 end
