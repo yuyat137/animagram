@@ -8,7 +8,7 @@
 #  title       :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  category_id :integer
+#  category_id :integer          not null
 #  user_id     :bigint
 #
 # Indexes
