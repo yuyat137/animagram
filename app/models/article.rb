@@ -24,6 +24,7 @@ class Article < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   belongs_to :user
+  belongs_to :category
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorite_articles, through: :favorites, source: :article
