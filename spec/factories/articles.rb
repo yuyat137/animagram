@@ -22,7 +22,6 @@ FactoryBot.define do
   factory :article do
     sequence(:title) { |n| "タイトル#{n}" }
     image { File.open(File.join(Rails.root, 'spec/fixtures/test_image.jpeg')) }
-    #image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test_image.jpeg')}
     description { "content" }
     user
   end
