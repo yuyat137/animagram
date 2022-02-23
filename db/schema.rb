@@ -28,9 +28,12 @@ ActiveRecord::Schema.define(version: 2022_02_23_154417) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "rekognition_name", null: false
+    t.string "display_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["display_name"], name: "index_categories_on_display_name", unique: true
+    t.index ["rekognition_name"], name: "index_categories_on_rekognition_name", unique: true
   end
 
   create_table "comments", force: :cascade do |t|
