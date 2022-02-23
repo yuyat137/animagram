@@ -34,7 +34,7 @@ RSpec.describe 'article', type: :system do
         expect(page).to have_content(article.title), 'articleのtitleが表示されていません'
         expect(page).to have_content(article.description), 'articleのdescriptionが表示されていません'
         expect(page).to have_content(article.user.name), 'articleを作成したuserの名前が表示されていません'
-        expect(page).to have_selector("img[src$='test_image.jpeg']")
+        expect(page).to have_selector("img[src$='something.jpg']")
       end
     end
   end
@@ -59,7 +59,7 @@ RSpec.describe 'article', type: :system do
         expect(page).to have_content(article.title), 'articleのtitleが表示されていません'
         expect(page).to have_content(article.description), 'articleのdescriptionが表示されていません'
         expect(page).to have_content(article.user.name), 'articleを作成したuserの名前が表示されていません'
-        expect(page).to have_selector("img[src$='test_image.jpeg']")
+        expect(page).to have_selector("img[src$='something.jpg']")
       end
     end
   end
