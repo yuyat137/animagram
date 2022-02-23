@@ -33,5 +33,4 @@ class Article < ApplicationRecord
   validates :title, presence: true, length: { maximum: 50 }
   validates :description, length: { maximum: 300 }
   validates :image, presence: true
-  validates :category_id, presence: true
 end
