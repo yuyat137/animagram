@@ -63,14 +63,11 @@ class ArticlesController < ApplicationController
                         })
 
       rekognition = Aws::Rekognition::Client.new(region: Aws.config[:region], credentials: Aws.config[:credentials])
-      @uri = @article.image.service_url
-      dir = @uri.split('/').fourth
-      key = dir.split('?').first
       response = rekognition.detect_labels({
                                              image: {
                                                s3_object: {
                                                  bucket: 'photo-app-0207',
-                                                 name: key
+                                                 name: @article.image.path
                                                }
                                              }
                                            })
