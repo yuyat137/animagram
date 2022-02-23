@@ -26,6 +26,7 @@ FactoryBot.define do
     sequence(:title) { |n| "タイトル#{n}" }
     image { File.open(File.join(Rails.root, 'spec/fixtures/test_image.jpeg')) }
     description { "content" }
+    association :category
     user
   end
 end
