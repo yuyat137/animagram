@@ -1,5 +1,5 @@
 class AddCategoryIdToArticles < ActiveRecord::Migration[6.1]
   def change
-    add_column :articles, :category_id, :integer, foreign_key: true, null: false
+    add_reference :articles, :category, null: false, foreign_key: true
   end
 end
