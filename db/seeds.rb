@@ -26,16 +26,64 @@ Category.create!(
       display_name: '犬'
     },
     {
+      rekognition_name: 'Rabbit',
+      display_name: 'うさぎ'
+    },
+    {
+      rekognition_name: 'Hamster',
+      display_name: 'ハムスター'
+    },
+    {
+      rekognition_name: 'Parakeet',
+      display_name: 'インコ'
+    },
+    {
+      rekognition_name: 'Otter',
+      display_name: 'カワウソ'
+    },
+    {
       rekognition_name: 'Ferret',
       display_name: 'フェレット'
     },
     {
-      rekognition_name: 'Rat',
-      display_name: 'ねずみ'
-    },
-    {
       rekognition_name: 'Hedgehog',
       display_name: 'ハリネズミ'
+    },
+    {
+      rekognition_name: 'Chinchilla',
+      display_name: 'チンチラ'
+    },
+    {
+      rekognition_name: 'Owl',
+      display_name: 'フクロウ'
+    },
+    {
+      rekognition_name: 'Penguin',
+      display_name: 'ペンギン'
+    },
+    {
+      rekognition_name: 'Flying squirrel'
+      display_name: 'モモンガ'
+    },
+    {
+      rekognition_name: 'Capybara'
+      display_name: 'カピパラ'
+    },
+    {
+      rekognition_name: 'Gecko'
+      display_name: 'トカゲ'
+    },
+    {
+      rekognition_name: 'Reptile'
+      display_name: '爬虫類'
+    },
+    {
+      rekognition_name: 'Bird'
+      display_name: '鳥類'
+    },
+    {
+      rekognition_name: 'Fish'
+      display_name: '魚類'
     },
     {
       rekognition_name: 'その他',
