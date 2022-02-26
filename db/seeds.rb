@@ -62,27 +62,27 @@ Category.create!(
       display_name: 'ペンギン'
     },
     {
-      rekognition_name: 'Flying squirrel'
+      rekognition_name: 'Flying squirrel',
       display_name: 'モモンガ'
     },
     {
-      rekognition_name: 'Capybara'
+      rekognition_name: 'Capybara',
       display_name: 'カピパラ'
     },
     {
-      rekognition_name: 'Gecko'
+      rekognition_name: 'Gecko',
       display_name: 'トカゲ'
     },
     {
-      rekognition_name: 'Reptile'
+      rekognition_name: 'Reptile',
       display_name: '爬虫類'
     },
     {
-      rekognition_name: 'Bird'
+      rekognition_name: 'Bird',
       display_name: '鳥類'
     },
     {
-      rekognition_name: 'Fish'
+      rekognition_name: 'Fish',
       display_name: '魚類'
     },
     {
