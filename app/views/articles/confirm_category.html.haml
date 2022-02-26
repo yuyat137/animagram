@@ -1,0 +1,25 @@
+.flex.flex-col.min-h-screen
+  %main.flex-grow.bg-yellow-100.bg-white.rounded.overflow-hidden.shadow-lg.p-8.rounded-lg.mx-8.my-8
+    = form_with model: @article, local: true  do |f|
+      %article.bg-white.group.relative.rounded-lg.overflow-hidden.shadow-lg.mb-12
+        %h2.text-1xl.font-extrabold.text-gray-600.text-center.mt-16
+          = @article.title
+          = f.hidden_field :title
+          - if @article.description.present?
+            = @article.description
+            = f.hidden_field :description
+        .relative.w-full.h-80.md:h-64.lg:h-44.flex.justify-center.mt-8
+          = image_tag @article.image.url
+          = hidden_field_tag :'cache[image]', @article.image.cache_name
+        %p.text-1xl.text-base.font-semibold.text-gray-600.group-hover:text-indigo-600.text-center.mt-8
+          = safe_join(@article.user.name.split("\n"))
+        .relative.w-full.h-80.md:h-64.lg:h-44.flex.justify-center.mt-8
+          .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.mt-4.ml-12
+            = f.label :category_id
+            = f.collection_select :category_id, Category.all, :id, :display_name
+        .my-8.mb-8
+          = f.submit 'Back', name: 'back', class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-auto flex justify-center'
+        .my-8.mb-8
+          = f.submit 'Register', class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-auto flex justify-center'
+    .my-8.mb-8
+      /= link_to 'return', new_article_path(confirm_back: true)
