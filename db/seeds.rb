@@ -15,12 +15,34 @@
   )
 end
 
-5.times do
-  Category.create(
-    rekognition_name: Faker::Creature::Animal.name,
-    display_name: Faker::Creature::Animal.name,
-  )
-end
+Category.create!(
+  [
+    {
+      rekognition_name: 'Cat',
+      display_name: '猫'
+    },
+    {
+      rekognition_name: 'Dog',
+      display_name: '犬'
+    },
+    {
+      rekognition_name: 'Ferret',
+      display_name: 'フェレット'
+    },
+    {
+      rekognition_name: 'Rat',
+      display_name: 'ねずみ'
+    },
+    {
+      rekognition_name: 'Hedgehog',
+      display_name: 'ハリネズミ'
+    },
+    {
+      rekognition_name: 'その他',
+      display_name: 'その他'
+    }
+  ]
+)
 
 5.times do |index|
   article = Article.create!(

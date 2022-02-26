@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(article_params)
     if @article.save
+      binding.pry
       image_rekognition(@article.image)
       redirect_to articles_path, notice: '記事を作成しました'
     else
@@ -48,7 +49,7 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit(:title, :description, :image)
+      params.require(:article).permit(:title, :description, :image, :category_id)
     end
 
     def set_article
@@ -71,7 +72,25 @@ class ArticlesController < ApplicationController
                                                }
                                              }
                                            })
-      first_label = response.labels.first
+
+      result_label_list = response.labels.first(10)
+      category_name_list = []
+      result_label_list.each do |result_label|
+        category_name_list << result_label.name
+      end
+
+      rekogniton_name_list = Category.pluck(:rekognition_name)
+      rekognition_name_result = "その他"
+      for rekogniton_name in rekogniton_name_list do
+        for category_name in category_name_list do
+          if rekogniton_name.eql?(category_name) then
+            rekognition_name_result = category_name
+            break
+          end
+        end
+      end
+
+      @result = Category.find_by(rekognition_name: rekognition_name_result).display_name
       Rails.logger.debug("#{first_label.name} #{first_label.confidence}")
     end
 end
