@@ -15,7 +15,6 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(article_params)
     if @article.save
-      binding.pry
       image_rekognition(@article.image)
       redirect_to articles_path, notice: '記事を作成しました'
     else
@@ -73,24 +72,23 @@ class ArticlesController < ApplicationController
                                              }
                                            })
 
-      result_label_list = response.labels.first(10)
-      category_name_list = []
-      result_label_list.each do |result_label|
-        category_name_list << result_label.name
+      result_label_list = response.labels
+      uper_confidence_list = result_label_list.select do |result_label|
+        result_label.confidence >= 90
       end
 
-      rekogniton_name_list = Category.pluck(:rekognition_name)
-      rekognition_name_result = "その他"
-      for rekogniton_name in rekogniton_name_list do
-        for category_name in category_name_list do
-          if rekogniton_name.eql?(category_name) then
-            rekognition_name_result = category_name
-            break
-          end
+      rekognition_name_list = uper_confidence_list.map(&:name)
+
+      category_name_list = Category.pluck(:rekognition_name)
+      rekognition_name_result = 'その他'
+      rekognition_name_list.each do |rekogniton_name|
+        category = category_name_list.find { |category_name| category_name == rekogniton_name }
+        if category.present?
+          rekognition_name_result = category
+          break
         end
       end
 
       @result = Category.find_by(rekognition_name: rekognition_name_result).display_name
-      Rails.logger.debug("#{first_label.name} #{first_label.confidence}")
     end
 end
