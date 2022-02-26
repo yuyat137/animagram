@@ -7,8 +7,9 @@
         = image_tag article.image.to_s
       .px-3.py-4
         %h3.text-sm.text-gray-500.pb-2
-        %p.text-1xl.text-base.font-semibold.text-gray-600.group-hover:text-indigo-600.ml-8
-          = safe_join(article.description.split("\n"))
+        - if article.description.present?
+          %p.text-1xl.text-base.font-semibold.text-gray-600.group-hover:text-indigo-600.ml-8
+            = safe_join(article.description.split("\n"))
         %p.text-1xl.text-base.font-semibold.text-gray-600.group-hover:text-indigo-600.text-right.mr-8
           = safe_join(article.user.name.split("\n"))
         .flex.flex-wrap.justify-center.my-8

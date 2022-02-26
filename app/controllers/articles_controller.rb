@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit(:title, :description, :image)
+      params.require(:article).permit(:title, :description, :image, :category_id)
     end
 
     def set_article
@@ -71,7 +71,24 @@ class ArticlesController < ApplicationController
                                                }
                                              }
                                            })
-      first_label = response.labels.first
-      Rails.logger.debug("#{first_label.name} #{first_label.confidence}")
+
+      result_label_list = response.labels
+      uper_confidence_list = result_label_list.select do |result_label|
+        result_label.confidence >= 90
+      end
+
+      rekognition_name_list = uper_confidence_list.map(&:name)
+
+      category_name_list = Category.pluck(:rekognition_name)
+      rekognition_name_result = 'その他'
+      rekognition_name_list.each do |rekogniton_name|
+        category = category_name_list.find { |category_name| category_name == rekogniton_name }
+        if category.present?
+          rekognition_name_result = category
+          break
+        end
+      end
+
+      @result = Category.find_by(rekognition_name: rekognition_name_result).display_name
     end
 end
