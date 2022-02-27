@@ -9,12 +9,30 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = Article.new
+    if params[:confirm_back]
+      @article.image.retrieve_from_cache!(session[:image_cache_name])
+    else
+      @article = Article.new
+    end
+  end
+
+  def confirm_category
+    @article = current_user.articles.build(article_params)
+    @result
+    #session[:article_params] = article_params
+    render :new if @article.invalid?
   end
 
   def create
     @article = current_user.articles.build(article_params)
-    if @article.save
+    @article.image.retrieve_from_cache! params[:cache][:image]
+
+    if params[:back].present?
+      render :new
+      return
+    end
+
+    if @article.save(validate: false)
       image_rekognition(@article.image)
       redirect_to articles_path, notice: '記事を作成しました'
     else
