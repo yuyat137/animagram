@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2022_02_28_092342) do
     t.string "title", null: false
     t.text "description"
     t.string "image", null: false
-    t.string "string", null: false
     t.bigint "user_id"
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -48,8 +47,13 @@ ActiveRecord::Schema.define(version: 2022_02_28_092342) do
   end
 
   create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "article_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_favorites_on_article_id"
+    t.index ["user_id", "article_id"], name: "index_favorites_on_user_id_and_article_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,4 +70,6 @@ ActiveRecord::Schema.define(version: 2022_02_28_092342) do
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "articles"
+  add_foreign_key "favorites", "users"
 end
