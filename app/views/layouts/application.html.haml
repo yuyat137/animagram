@@ -16,4 +16,6 @@
       = render 'shared/before_login_header'
     = render 'shared/flash_message'
     = yield
+    - if Rails.env.production?
+      = render 'layouts/google_analytics'
     = render 'shared/footer'
