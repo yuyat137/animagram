@@ -6,7 +6,8 @@
 #
 #  id          :bigint           not null, primary key
 #  description :text
-#  image       :string
+#  image       :string           not null
+#  string      :string           not null
 #  title       :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
