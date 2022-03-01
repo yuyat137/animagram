@@ -168,7 +168,6 @@ GEM
     formatador (0.3.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    google-analytics-rails (1.1.1)
     hamlit (2.16.0)
       temple (>= 0.8.2)
       thor
@@ -406,7 +405,6 @@ DEPENDENCIES
   faker
   fog-aws
   font-awesome-sass
-  google-analytics-rails
   hamlit-rails
   jbuilder (~> 2.7)
   kaminari

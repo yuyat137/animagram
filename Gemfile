@@ -35,7 +35,6 @@ gem 'aws-sdk-rekognition'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'fog-aws'
-gem 'google-analytics-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
