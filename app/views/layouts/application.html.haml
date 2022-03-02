@@ -1,7 +1,6 @@
 !!!
 %html
   %head
-    = render 'layouts/google_analytics'
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Animagram
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
@@ -10,6 +9,7 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = render 'layouts/google_analytics'
   %body
     - if logged_in?
       = render 'shared/header'
