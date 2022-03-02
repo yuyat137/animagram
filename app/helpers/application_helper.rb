@@ -1,10 +1,7 @@
 module ApplicationHelper
-  def full_title(page_title = '')
-    base_title = 'animagram'
-    if page_title.empty?
-      base_title
-    else
-      "#{page_title} | animagram"
-    end
+  BASE_TITLE = 'animagram'.freeze
+
+  def full_title(page_title)
+    page_title.blank? ? BASE_TITLE : "#{page_title} | #{BASE_TITLE}"
   end
 end
