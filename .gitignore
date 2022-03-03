@@ -41,3 +41,4 @@ yarn-debug.log*
 
 vendor/bundle
 public/uploads/
+app/assets/images/
