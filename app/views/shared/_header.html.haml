@@ -3,17 +3,19 @@
     %a.flex.title-font.font-medium.items-center.text-yellow-500.mb-4.md:mb-0
       %span.ml-3.text-xl あにまぐらむ
     %nav.md:ml-auto.flex.flex-wrap.items-center.text-base.justify-center.mb-4
-      %a.mr-5.hover:text-green-900
-        = link_to '写真を投稿する', new_article_path
-    %nav.md:ml-auto.flex.flex-wrap.items-center.text-base.justify-center.mb-4
-      %a.mr-5.hover:text-green-900
-        = link_to 'TOP', root_path
-    %nav.md:ml-auto.flex.flex-wrap.items-center.text-base.justify-center.mb-4
-      %a.mr-5.hover:text-green-900
-        = link_to 'お気に入り写真一覧', favorite_articles_path
-    %nav.md:ml-auto.flex.flex-wrap.items-center.text-base.justify-center
-      %a.mr-5.hover:text-green-900
-        = link_to 'Logout', logout_path, method: :delete
-      %a.ml-3.text-green-500
-        %svg.w-5.h-5.ml-1{"fill" => "currentColor", "stroke" => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", "viewBox" => "0 0 24 24" }
-          %path{"d" => "M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"}
+    #navArea
+      %nav
+        .hamburger
+          %span
+          %span
+          %span
+        %nav.globalMenuSp
+          %ul
+            %li
+              = link_to '写真を投稿する', new_article_path
+            %li
+              = link_to 'TOP', root_path
+            %li
+              = link_to 'お気に入り写真一覧', favorite_articles_path
+            %li
+              = link_to 'Logout', logout_path, method: :delete
