@@ -16,6 +16,7 @@ RSpec.describe 'article', type: :system do
       it 'article作成リンクが表示されていること' do
         login_as(user)
         visit articles_path
+        find(".hamburger").click
         expect(page).to have_link('写真を投稿する')
       end
     end

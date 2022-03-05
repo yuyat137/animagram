@@ -31,6 +31,7 @@ RSpec.describe 'UserSessions', type: :system do
     context 'Logoutボタンを押す' do
       it 'ログアウトに成功する' do
         login_as(user)
+        find(".hamburger").click
         click_link 'Logout'
         expect(page).to have_content 'ログアウトしました'
         expect(current_path).to eq root_path
