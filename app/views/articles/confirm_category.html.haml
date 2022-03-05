@@ -16,10 +16,10 @@
         .relative.w-full.h-80.md:h-64.lg:h-44.flex.justify-center.mt-8
           .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.mt-4.ml-12
             = f.label :category_id
-            = f.collection_select :category_id, Category.all, :id, :display_name
+            = f.collection_select :category_id, Category.all, :id, :display_name, {selected: @result.id}
+        %p.text-1xl.text-base.font-semibold.text-red-600.text-center.mb-8
+          選択されているカテゴリーが誤っている場合は、修正してください。
         .my-8.mb-8
           = f.submit 'Back', name: 'back', class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-auto flex justify-center'
         .my-8.mb-8
           = f.submit 'Register', class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-auto flex justify-center'
-    .my-8.mb-8
-      /= link_to 'return', new_article_path(confirm_back: true)

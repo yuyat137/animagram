@@ -112,6 +112,6 @@ class ArticlesController < ApplicationController
         end
       end
 
-      Category.find_by(rekognition_name: rekognition_name_result).display_name
+      Category.find_by(rekognition_name: rekognition_name_result)
     end
 end
