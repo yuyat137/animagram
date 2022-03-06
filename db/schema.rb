@@ -60,6 +60,9 @@ ActiveRecord::Schema.define(version: 2022_03_04_142753) do
     t.string "source", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_favorites_on_article_id"
+    t.index ["user_id", "article_id"], name: "index_favorites_on_user_id_and_article_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
