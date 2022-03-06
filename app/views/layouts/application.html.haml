@@ -1,12 +1,17 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "summary_large_image", :name => "twitter:card"}/
+    %meta{:content => "@Lilie_psy", :name => "twitter:site"}/
+    %meta{:content => "animagram", :property => "og:title"}/
+    %meta{:content => "https://anima-gram.herokuapp.com/", :property => "og:url"}/
+    %meta{:content => 'ペットの写真をシェアしたり、動物の写真を見て癒されよう🐈', :property => "og:description"}/
+    %meta{:content => full_url_for('/assets/logo-ogp.png'), :property => "og:image"}/
     %title
       = full_title(yield(:title))
-    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     = csrf_meta_tags
     = csp_meta_tag
+    = display_meta_tags(default_meta_tags)
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
