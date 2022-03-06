@@ -15,8 +15,8 @@
     %meta{:content => "@Lilie_psy", :name => "twitter:site"}/
     %meta{:content => "animagram", :property => "og:title"}/
     %meta{:content => "https://anima-gram.herokuapp.com/", :property => "og:url"}/
-    %meta{:content => content_for?(:description) ? yield(:description) : 'ペットの写真をシェアしたり、動物の写真を見て癒されよう🐈', :property => "og:description"}/
-    %meta{:content => content_for?(:image_url) ? yield(:image_url) : full_url('/assets/logo-ogp.png'), :property => "og:image"}/
+    %meta{:content => 'ペットの写真をシェアしたり、動物の写真を見て癒されよう🐈', :property => "og:description"}/
+    %meta{:content => full_url('/assets/logo-ogp.png'), :property => "og:image"}/
   %body
     - if logged_in?
       = render 'shared/header'
