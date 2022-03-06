@@ -9,13 +9,30 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = Article.new
+    if params[:confirm_back]
+      @article.image.retrieve_from_cache!(session[:image_cache_name])
+    else
+      @article = Article.new
+    end
+  end
+
+  def confirm_category
+    @article = current_user.articles.build(article_params)
+    temp_image = TemporaryRekognitionImage.create(source: params[:article][:image])
+    @result = image_rekognition(temp_image.source)
+    render :new unless valid_except_category(@article)
   end
 
   def create
     @article = current_user.articles.build(article_params)
-    if @article.save
-      image_rekognition(@article.image)
+    @article.image.retrieve_from_cache! params[:cache][:image]
+
+    if params[:back].present?
+      render :new
+      return
+    end
+
+    if @article.save(validate: false)
       redirect_to articles_path, notice: '記事を作成しました'
     else
       flash.now['notice'] = '記事の作成に失敗しました'
@@ -55,7 +72,13 @@ class ArticlesController < ApplicationController
       @article = current_user.articles.find(params[:id])
     end
 
-    def image_rekognition(_object)
+    def valid_except_category(article)
+      article.valid?
+      article.errors.delete(:category)
+      article.errors.empty?
+    end
+
+    def image_rekognition(image)
       Aws.config.update({
                           region: 'ap-northeast-1',
                           credentials: Aws::Credentials.new(Rails.application.credentials.aws[:access_key_id],
@@ -67,7 +90,7 @@ class ArticlesController < ApplicationController
                                              image: {
                                                s3_object: {
                                                  bucket: 'photo-app-0207',
-                                                 name: @article.image.path
+                                                 name: image.path
                                                }
                                              }
                                            })
@@ -89,6 +112,6 @@ class ArticlesController < ApplicationController
         end
       end
 
-      @result = Category.find_by(rekognition_name: rekognition_name_result).display_name
+      Category.find_by(rekognition_name: rekognition_name_result)
     end
 end
