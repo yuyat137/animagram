@@ -2,14 +2,21 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     %title
       = full_title(yield(:title))
-    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     = csrf_meta_tags
     = csp_meta_tag
+    = display_meta_tags(default_meta_tags)
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    %meta{:content => "summary_large_image", :name => "twitter:card"}/
+    %meta{:content => "@Lilie_psy", :name => "twitter:site"}/
+    %meta{:content => "animagram", :property => "og:title"}/
+    %meta{:content => "https://anima-gram.herokuapp.com/", :property => "og:url"}/
+    %meta{:content => content_for?(:description) ? yield(:description) : 'ペットの写真をシェアしたり、動物の写真を見て癒されよう🐈', :property => "og:description"}/
+    %meta{:content => content_for?(:image_url) ? yield(:image_url) : full_url('/assets/logo-ogp.png'), :property => "og:image"}/
   %body
     - if logged_in?
       = render 'shared/header'
