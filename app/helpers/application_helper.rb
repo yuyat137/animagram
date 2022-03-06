@@ -16,7 +16,7 @@ module ApplicationHelper
       separator: '|',
       icon: [
         { href: image_url('animagram-square.png') },
-        { href: image_url('animagram-square.png'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' },
+        { href: image_url('animagram-square.png'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' }
       ],
       og: {
         title: :title,
@@ -24,11 +24,11 @@ module ApplicationHelper
         type: 'website',
         url: request.original_url,
         image: image_url('logo-ogp.png'),
-        locale: 'ja_JP',
+        locale: 'ja_JP'
       },
       twitter: {
         card: 'summary',
-        site: '@Lilie_psy',
+        site: '@Lilie_psy'
       }
     }
   end
