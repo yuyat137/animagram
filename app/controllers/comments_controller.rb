@@ -4,16 +4,16 @@ class CommentsController < ApplicationController
   def create
     comment = current_user.comments.build(comment_params)
     if comment.save
-      redirect_to article_path(comment.article), notice: 'コメントを投稿しました'
+      redirect_to article_path(comment.article), notice: t('defaults.success', item: Comment.model_name.human)
     else
-      redirect_to article_path(comment.article), notice: 'コメントの投稿に失敗しました'
+      redirect_to article_path(comment.article), notice: t('defaults.fail', item: Comment.model_name.human)
     end
   end
 
   def destroy
     @comment = current_user.comments.find(params[:id])
     @comment.destroy!
-    redirect_to article_path(@comment.article), notice: 'コメントを削除しました'
+    redirect_to article_path(@comment.article), notice: t('defaults.deleted', item: Comment.model_name.human)
   end
 
   private
