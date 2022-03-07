@@ -2,3 +2,6 @@
   - if @categories.present?
     - @categories.each do |article|
       = render 'article', { article: article }
+  - else
+    .bg-green-100.border.border-yellow-500.text-green-700.px-4.py-3.rounded.mx-10.my-10
+      %p= t('defaults.no_article')
