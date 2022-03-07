@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   def require_login
     return if logged_in?
 
-    redirect_to login_path, notice: 'ログインしてください'
+    redirect_to login_path, notice: t('defaults.require_login')
   end
 end
