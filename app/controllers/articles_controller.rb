@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
   def confirm_category
     @article = current_user.articles.build(article_params)
     temp_image = TemporaryRekognitionImage.create(source: params[:article][:image])
+    logger.debug(@temp_image)
     @result = image_rekognition(temp_image.source)
     render :new unless valid_except_category(@article)
   end
