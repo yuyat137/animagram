@@ -12,10 +12,10 @@
         %nav.globalMenuSp
           %ul
             %li
-              = link_to '写真を投稿する', new_article_path
+              = link_to t('defaults.up_article'), new_article_path
             %li
-              = link_to 'TOP', root_path
+              = link_to t('defaults.top'), root_path
             %li
-              = link_to 'お気に入り写真一覧', favorite_articles_path
+              = link_to t('favorite_articles.index.articles_list'), favorite_articles_path
             %li
-              = link_to 'Logout', logout_path, method: :delete
+              = link_to t('user_sessions.new.logout'), logout_path, method: :delete
