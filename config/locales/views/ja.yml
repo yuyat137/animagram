@@ -1,0 +1,44 @@
+ja:
+  defaults:
+    login: "ログイン"
+    register: "投稿する"
+    back: "戻る"
+    update: "更新する"
+    edit: "編集"
+    logout: "ログアウト"
+    require_login: "ログインしてください"
+    success: "%{item}を作成しました"
+    fail: "%{item}を作成できませんでした"
+    deleted: "%{item}を削除しました"
+    updated: "%{item}を更新しました"
+    no_updated: "%{item}を更新できませんでした"
+    no_article: "写真がありません"
+    require_article: "%{item}を添付してください"
+    delete_confirm: "削除してよろしいですか？"
+    form_of_image: "※jpeg/jpg/png形式の画像を添付してください"
+    up_article: "写真を投稿する"
+    top: "トップページ"
+  users:
+    new:
+      register: "ユーザー登録する"
+    create:
+      success: "ユーザー登録が完了しました"
+      fail: "ユーザー登録に失敗しました"
+  user_sessions:
+    new:
+      login: "ログイン"
+      logout: "ログアウト"
+    create:
+      success: "ログインしました"
+      fail: "ログインに失敗しました"
+    destroy:
+      success: "ログアウトしました"
+  articles:
+    time:
+      formats:
+        default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+        long: "%Y/%m/%d %H:%M"
+        short: "%m/%d %H:%M"
+  favorite_articles:
+    index:
+      articles_list: "お気に入り写真一覧"

@@ -12,6 +12,8 @@
             = safe_join(article.description.split("\n"))
         %p.text-1xl.text-base.font-semibold.text-gray-600.group-hover:text-indigo-600.text-right.mr-8
           = safe_join(article.user.name.split("\n"))
+        %p.text-1xl.text-base.font-semibold.text-gray-600.group-hover:text-indigo-600.text-right.mr-8
+          = l article.created_at, format: :long
         .flex.flex-wrap.justify-center.my-8
           - if logged_in?
             - if current_user.own?(article)
@@ -20,6 +22,6 @@
               .text-1xl.text-yellow-500.my-4.mx-4
                 = link_to icon("fas", "trash-alt", class: "fa-thin"), article_path(article),
                   method: :delete,
-                  data: { confirm: '削除してよろしいですか?' }
+                  data: { confirm: t('defaults.delete_confirm') }
             - else
               = render 'articles/favorite_button', { article: article }

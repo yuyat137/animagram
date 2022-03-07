@@ -18,8 +18,10 @@ class ArticlesController < ApplicationController
 
   def confirm_category
     @article = current_user.articles.build(article_params)
-    temp_image = TemporaryRekognitionImage.create(source: params[:article][:image])
-    @result = image_rekognition(temp_image.source)
+    if params[:article][:image].present?
+      temp_image = TemporaryRekognitionImage.create(source: params[:article][:image])
+      @result = image_rekognition(temp_image.source)
+    end
     render :new unless valid_except_category(@article)
   end
 
@@ -33,9 +35,9 @@ class ArticlesController < ApplicationController
     end
 
     if @article.save(validate: false)
-      redirect_to articles_path, notice: '記事を作成しました'
+      redirect_to articles_path, notice: t('defaults.success', item: Article.model_name.human)
     else
-      flash.now['notice'] = '記事の作成に失敗しました'
+      flash.now['notice'] = t('defaults.faile', item: Article.model_name.human)
       render :new
     end
   end
@@ -50,16 +52,16 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to @article, notice: '記事を更新しました'
+      redirect_to @article, notice: t('defaults.updated', item: Article.model_name.human)
     else
-      flash.now[:notice] = '記事の更新に失敗しました'
+      flash.now[:notice] = t('defaults.no_updated', item: Article.model_name.human)
       render :edit
     end
   end
 
   def destroy
     @article.destroy!
-    redirect_to articles_path, notice: '記事を削除しました'
+    redirect_to articles_path, notice: t('defaults.deleted', item: Article.model_name.human)
   end
 
   private

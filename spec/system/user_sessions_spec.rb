@@ -9,7 +9,7 @@ RSpec.describe 'UserSessions', type: :system do
         visit login_path
         fill_in 'email', with: user.email
         fill_in 'password', with: 'password'
-        click_button 'Login'
+        click_button 'ログイン'
         expect(page).to have_content 'ログインしました'
         expect(current_path).to eq root_path
       end
@@ -20,7 +20,7 @@ RSpec.describe 'UserSessions', type: :system do
         visit login_path
         fill_in 'email', with: ''
         fill_in 'password', with: 'password'
-        click_button 'Login'
+        click_button 'ログイン'
         expect(page).to have_content 'ログインに失敗しました'
         expect(current_path).to eq login_path
       end
@@ -32,7 +32,7 @@ RSpec.describe 'UserSessions', type: :system do
       it 'ログアウトに成功する' do
         login_as(user)
         find(".hamburger").click
-        click_link 'Logout'
+        click_link 'ログアウト'
         expect(page).to have_content 'ログアウトしました'
         expect(current_path).to eq root_path
       end

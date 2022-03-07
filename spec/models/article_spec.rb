@@ -37,7 +37,7 @@ RSpec.describe Article, type: :model do
       it '無効であること' do
         article_without_title = build(:article, title: '')
         expect(article_without_title).to be_invalid
-        expect(article_without_title.errors[:title]).to eq ["can't be blank"]
+        expect(article_without_title.errors[:title]).to eq ["を入力してください"]
       end
     end
 
