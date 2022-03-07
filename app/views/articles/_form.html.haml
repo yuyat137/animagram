@@ -2,16 +2,16 @@
   = render 'shared/error_messages', object: f.object
   = f.label :title, 'Title'
   .bg-white.rounded.border.border-green-500.mb-8
-    = f.text_area :title, :size=>"90x2", id: 'article_title'
+    = f.text_area :title, :size=>"60x2", id: 'article_title'
   .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.mt-4
     = f.label :image
   .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.mt-4
     = f.file_field :image, id: 'article_image'
   .text-green-600
-    %p ※jpeg/png形式の画像を添付してください
+    %p ※jpeg/jpg/png形式の画像を添付してください
   .focus:border-indigo-300.py-6
     = f.label :description, 'Description'
     %br
     .bg-white.rounded.border.border-green-500.mb-8.text-center
-      = f.text_area :description, :size=>"90x20", id: 'article_description'
+      = f.text_area :description, :size=>"60x20", id: 'article_description'
     = f.submit 'Register', class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-auto flex justify-center'
