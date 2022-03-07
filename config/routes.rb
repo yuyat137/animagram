@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   resources :favorite_articles, only: :index
 
+  get 'category_list', to: 'articles#category_list'
   root 'articles#index'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'

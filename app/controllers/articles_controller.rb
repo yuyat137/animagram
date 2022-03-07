@@ -64,6 +64,15 @@ class ArticlesController < ApplicationController
     redirect_to articles_path, notice: t('defaults.deleted', item: Article.model_name.human)
   end
 
+  def category_list
+    if params[:category_id].present?
+      @categories = Article.where(category_id: params[:category_id])
+      @articles = @categories.all.includes([:user, :favorites]).order(created_at: :desc).page(params[:page]).per(5)
+    else
+      render :index
+    end
+  end
+
   private
 
     def article_params
