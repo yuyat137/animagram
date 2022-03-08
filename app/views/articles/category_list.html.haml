@@ -1,10 +1,9 @@
 .bg-yellow-100.pt-10
   = form_with model: @article, url: category_list_path, method: :get, local: true do |f|
-    .text-center.mt-4
+    .ml-8.mt-4
       %p= t('defaults.choice_category')
       = f.collection_select :category_id, Category.all, :id, :display_name
-    .mt-8
-      = f.submit t('defaults.choice_category_button'), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-auto flex justify-center'
+      = f.submit t('defaults.choice_category_button'), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded'
   - if @categories.present?
     - @categories.each do |article|
       = render 'article', { article: article }
