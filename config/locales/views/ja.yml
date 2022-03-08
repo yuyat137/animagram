@@ -18,6 +18,9 @@ ja:
     form_of_image: "※jpeg/jpg/png形式の画像を添付してください"
     up_article: "写真を投稿する"
     top: "トップページ"
+    choice_category: "カテゴリーを選択して表示"
+    choice_category_button: "カテゴリーを選択"
+    select_category_again: "選択されているカテゴリーが誤っている場合は、修正してください。"
   users:
     new:
       register: "ユーザー登録する"

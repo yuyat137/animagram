@@ -1,0 +1,11 @@
+= form_with model: article, local: true do |f|
+  = render 'shared/error_messages', object: f.object
+  = f.label :title
+  .bg-white.rounded.border.border-green-500.mb-8
+    = f.text_area :title, :size=>"80x2", id: 'article_title'
+  .focus:border-indigo-300.py-6
+    = f.label :description
+    %br
+    .bg-white.rounded.border.border-green-500.mb-8.text-center
+      = f.text_area :description, :size=>"80x20", id: 'article_description'
+    = f.submit t('defaults.update'), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-auto flex justify-center'
