@@ -66,8 +66,7 @@ class ArticlesController < ApplicationController
 
   def category_list
     if params[:category_id].present?
-      @categories = Article.where(category_id: params[:category_id])
-      @articles = @categories.all.includes([:user, :favorites]).order(created_at: :desc).page(params[:page]).per(5)
+      @categories = Article.where(category_id: params[:category_id]).includes([:user, :favorites]).order(created_at: :desc).page(params[:page]).per(5)
     else
       render :index
     end
