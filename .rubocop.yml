@@ -67,7 +67,7 @@ Metrics/BlockLength:
 Metrics/ClassLength:
   CountComments: false
   Exclude:
-
+    - "app/controllers/articles_controller.rb"
 
 Metrics/PerceivedComplexity:
   CountComments: false
