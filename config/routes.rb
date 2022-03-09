@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
+  get 'terms', to: 'settings#terms'
+  get 'privacy_policy', to: 'settings#privacy_policy'
   get '*path', to: 'application#render_404'
 end
