@@ -2,5 +2,5 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import "header.css";
-@import "error_404.css";
-@import "error_500.css";
+@import "error404.css";
+@import "error500.css";
