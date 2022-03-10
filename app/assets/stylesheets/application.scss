@@ -10,9 +10,10 @@
   text-align: center;
   border: 0;
   display: flex;
+  /*
   border-bottom: 1px solid rgb(66, 65, 65);
   border-top: 1px solid rgb(66, 65, 65);
-
+  */
   span {
     text-align: center;
     width: 50px;
@@ -33,7 +34,7 @@
       height: 100%;
 
       :hover {
-        background-color: #f3f3f3;
+        background-color: rgb(189, 189, 189);
         border-radius: 50px;
       }
     }
@@ -41,7 +42,7 @@
 }
 
 .current {
-  background-color: #b9ffa7d7;
+  background-color: #f7b58e;
   margin-top: 16px;
   border-radius: 50px;
   width: 50px;
