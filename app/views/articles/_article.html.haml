@@ -8,12 +8,12 @@
       .px-3.py-4
         %h3.text-sm.text-gray-500.pb-2
         - if article.description.present?
-          %p.text-1xl.text-base.font-semibold.text-gray-600.group-hover:text-indigo-600.ml-8
+          %p.text-1xl.text-base.font-semibold.text-gray-600
             = safe_join(article.description.split("\n"))
-        %p.text-1xl.text-base.font-semibold.text-gray-600.group-hover:text-indigo-600.text-right.mr-8
-          = safe_join(article.user.name.split("\n"))
-        %p.text-1xl.text-base.font-semibold.text-gray-600.group-hover:text-indigo-600.text-right.mr-8
+        %p.text-1xl.text-base.font-semibold.text-gray-600.text-right
           = l article.created_at, format: :long
+        %p.text-1xl.text-base.font-semibold.text-gray-600.text-right
+          = safe_join(article.user.name.split("\n"))
         .flex.flex-wrap.justify-center.my-8
           - if logged_in?
             - if current_user.own?(article)
