@@ -1,28 +1,21 @@
 # README
 
-E-R図
+<div align="center"><img src="https://user-images.githubusercontent.com/81548112/158072598-40ada61b-7678-4443-8f4e-cabc2f9516ee.pn"></div> 
+
+
+## 🌸E-R図
 https://drive.google.com/file/d/1MhNltq0X7Lv_vZL5ZCcx1gwykdbzcwiW/view?usp=sharing
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 🌸使用技術
+* Amazon Rekognition
+* Amazon S3
 
-Things you may want to cover:
+##### バックエンド
+* Ruby 3.0.2
+* Rails 6.1.4
+* RSpec
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# animagram
+##### フロントエンド
+* HTML
+* Tailwind CSS
+* jQuery
