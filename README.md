@@ -1,4 +1,4 @@
-# README
+# animagram🐈
 
 <div align="center"><img src="https://user-images.githubusercontent.com/81548112/158072598-40ada61b-7678-4443-8f4e-cabc2f9516ee.png"></div> 
 
