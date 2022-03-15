@@ -21,7 +21,7 @@ ja:
     choice_category: "カテゴリーを選択して表示"
     choice_category_button: "カテゴリーを選択"
     select_category_again: "選択されているカテゴリーが誤っている場合は、修正してください。"
-    index_user_article: "投稿した写真一覧"
+    index_user_articles: "投稿した写真一覧"
   users:
     new:
       register: "ユーザー登録する"

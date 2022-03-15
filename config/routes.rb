@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resource :favorite, only: %i[create destroy]
     post :confirm_category, action: :confirm_category, on: :new
       member do
-        get 'index_user'
+        get 'index_user_articles'
       end
   end
   resources :favorite_articles, only: :index
