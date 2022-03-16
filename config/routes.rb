@@ -7,9 +7,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create destroy], shallow: true
     resource :favorite, only: %i[create destroy]
     post :confirm_category, action: :confirm_category, on: :new
-      member do
-        get 'index_user_articles'
-      end
+    get 'index_user', on: :collection
   end
   resources :favorite_articles, only: :index
 

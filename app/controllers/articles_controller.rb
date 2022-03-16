@@ -72,7 +72,7 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def index_user_articles
+  def index_user
     @articles = current_user.articles.where(user_id: params[:id]).includes(:user).order(created_at: :desc).page(params[:page]).per(5)
   end
 
