@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :destroy]
 
   def index
-    @articles = Article.all.includes([:user, :favorites]).order(created_at: :desc).page(params[:page]).per(5)
+    @articles = Article.all.includes(%i[user favorites]).order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def new
@@ -73,7 +73,7 @@ class ArticlesController < ApplicationController
   end
 
   def index_user
-    @articles = current_user.articles.where(user_id: params[:id]).includes(:user).order(created_at: :desc).page(params[:page]).per(5)
+    @articles = current_user.articles.includes(:user).order(created_at: :desc).page(params[:page]).per(5)
   end
 
   private
