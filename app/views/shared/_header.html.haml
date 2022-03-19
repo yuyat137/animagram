@@ -1,22 +1,23 @@
-%header.text-yellow-500.body-font
-  %a.flex.title-font.font-medium.text-center.text-yellow-500.md:mb-0.items-centera
-    = link_to image_tag('animagram_rectangle.png', sm:w-1/2, md:w-96), articles_path
-  %nav.md:ml-auto.flex.flex-wrap.items-center.text-base.justify-center.mb-4
-  #navArea
-    %nav
-      .hamburger
-        %span
-        %span
-        %span
-      %nav.globalMenuSp
-        %ul
-          %li
-            = link_to t('defaults.up_article'), new_article_path
-          %li
-            = link_to t('defaults.index_user_articles'), index_user_articles_path
-          %li
-            = link_to t('favorite_articles.index.articles_list'), favorite_articles_path
-          %li
-            = link_to t('defaults.top'), root_path
-          %li
-            = link_to t('user_sessions.new.logout'), logout_path, method: :delete
+%header.text-yellow-500.body-font.m-auto
+  .container.flex.justify-center.p-5.mx-auto.text-center
+    %a.flex.title-font.font-medium.items-center.text-yellow-500.md:mb-0
+      = link_to image_tag('animagram_rectangle.png', size: '320x240'), articles_path, class: 'text-center'
+    %nav.md:ml-auto.flex.flex-wrap.items-center.text-base.justify-center.mb-4
+    #navArea
+      %nav
+        .hamburger
+          %span
+          %span
+          %span
+        %nav.globalMenuSp
+          %ul
+            %li
+              = link_to t('defaults.up_article'), new_article_path
+            %li
+              = link_to t('defaults.index_user_articles'), index_user_articles_path
+            %li
+              = link_to t('favorite_articles.index.articles_list'), favorite_articles_path
+            %li
+              = link_to t('defaults.top'), root_path
+            %li
+              = link_to t('user_sessions.new.logout'), logout_path, method: :delete

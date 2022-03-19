@@ -5,18 +5,14 @@
 @import "error404.css";
 @import "error500.css";
 
-@media only screen and (max-width: 767px) {
-  img {
-    width: 100%;
-    height: auto;
-  }
+.sample {
+  width: 500px;
 }
-/* pc　768px以上 */
-@media only screen and (min-width: 768px), print {
-  img {
-    width: auto;
-    height: auto;
-  }
+
+.sample img {
+  object-fit: cover;
+  width: 500px;
+  height: auto;
 }
 
 input[type="text"] {
