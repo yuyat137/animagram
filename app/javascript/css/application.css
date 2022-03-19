@@ -5,12 +5,14 @@
 @import "error404.css";
 @import "error500.css";
 
-.sample {
-  width: 500px;
+.white-board {
+  width: 80%;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.sample img {
-  object-fit: cover;
+.img {
   width: 500px;
   height: auto;
 }
