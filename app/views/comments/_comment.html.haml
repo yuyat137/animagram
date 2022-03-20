@@ -3,9 +3,9 @@
     .flex-grow
       %ul
         %li
-          %h3.text-yellow-500.inline-flex.items-center.ml-4.mt-4.md:text-1xl.sm:text-3xl
+          %h3.text-yellow-500.inline-flex.items-center.ml-4.mt-4.md:text-xl.sm:text-3xl
             = comment.user.name
-          %h2.text-gray-900.text-lg.title-font.font-medium.mb-3.ml-4.md:text-1xl.sm:text-3xl
+          %h2.text-gray-900.text-lg.title-font.font-medium.mb-3.ml-4.md:text-xl.sm:text-3xl
             = comment.body
           .text-right.mr-8
             - if current_user.own?(comment)
