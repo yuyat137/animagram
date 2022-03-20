@@ -1,20 +1,20 @@
-.col_2
-  = form_with model: article, local: true, url: confirm_category_new_article_path do |f|
-    = render 'shared/error_messages', object: f.object
+= form_with model: article, local: true, url: confirm_category_new_article_path do |f|
+  = render 'shared/error_messages', object: f.object
+  .md:text-1xl.sm:text-3xl
     = f.label :title
-    .inputWithIcon
-      .bg-white.rounded.border.border-green-500.mb-8
-        = f.text_area :title, id: 'article_title'
-    .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.mt-4
-      = f.label :image
-    .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.mt-4
-      = f.file_field :image, id: 'article_image'
-    .text-green-600
-      %p ※jpeg/jpg/png形式の画像を添付してください
-    .focus:border-indigo-300.py-6
-      = f.label :description
-      %br
-        .inputWithIcon
-          .bg-white.rounded.border.border-green-500.mb-8.text-center
-            = f.text_area :description, :size=>"60x20", id: 'article_description'
-      = f.submit t('defaults.register'), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-auto flex justify-center'
+  .inputWithIcon
+    .bg-white.rounded.border.border-green-500.mb-8.md:text-1xl.sm:text-3xl
+      = f.text_area :title, id: 'article_title'
+  .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.mt-4.md:text-1xl.sm:text-3xl
+    = f.label :image
+  .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.mt-4.md:text-1xl.sm:text-3xl
+    = f.file_field :image, id: 'article_image'
+  .text-green-600
+    %p ※jpeg/jpg/png形式の画像を添付してください
+  .focus:border-indigo-300.py-6.md:text-1xl.sm:text-3xl
+    = f.label :description
+    %br
+      .inputWithIcon
+        .bg-white.rounded.border.border-green-500.mb-8.text-center.md:text-1xl.sm:text-3xl
+          = f.text_area :description, :size=>"60x20", id: 'article_description'
+    = f.submit t('defaults.register'), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-auto flex justify-center'

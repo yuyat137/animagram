@@ -1,7 +1,6 @@
-- provide(:title, 'Show')
+- provide(:title, t('.show_page'))
 .bg-yellow-100.pt-10
   = render @article
-
-  = render 'comments/comments', { comments: @comments }
-
-  = render 'comments/form', { article: @article, comment: @comment }
+  .md:text-1xl.sm:text-3xl.white-board
+    = render 'comments/comments', { comments: @comments }
+    = render 'comments/form', { article: @article, comment: @comment }

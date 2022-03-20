@@ -1,6 +1,6 @@
-.bg-yellow-100.pt-10
+.bg-yellow-100.pt-10.text-center
   = form_with model: article, url: category_list_path, method: :get, local: true do |f|
-    .ml-8.mt-4.md:text-1xl.sm:text-2xl
+    .ml-8.mt-4.md:text-2xl.sm:text-3xl
       %p= t('defaults.choice_category')
     .text-1xl
       = f.collection_select :category_id, Category.all, :id, :display_name, { include_blank: "選択してください" }

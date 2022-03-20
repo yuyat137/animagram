@@ -1,5 +1,6 @@
 - if object.errors.any?
   .alert.alert-warning
     %ul
-      - object.errors.full_messages.each do |message|
-        %li= message
+      .sm:text-3xl
+        - object.errors.full_messages.each do |message|
+          %li= message

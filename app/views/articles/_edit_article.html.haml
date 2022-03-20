@@ -1,9 +1,10 @@
 = form_with model: article, local: true do |f|
   = render 'shared/error_messages', object: f.object
-  = f.label :title
+  .md:text-1xl.sm:text-3xl
+    = f.label :title
   .bg-white.rounded.border.border-green-500.mb-8
     = f.text_area :title, :size=>"80x2", id: 'article_title'
-  .focus:border-indigo-300.py-6
+  .focus:border-indigo-300.py-6.md:text-1xl.sm:text-3xl
     = f.label :description
     %br
     .bg-white.rounded.border.border-green-500.mb-8.text-center
