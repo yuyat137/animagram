@@ -12,12 +12,17 @@
         %nav.globalMenuSp
           %ul
             %li
-              = link_to t('defaults.up_article'), new_article_path
+              .sm:text-2xl
+                = link_to t('defaults.up_article'), new_article_path
             %li
-              = link_to t('defaults.index_user_articles'), index_user_articles_path
+              .sm:text-2xl
+                = link_to t('defaults.index_user_articles'), index_user_articles_path
             %li
-              = link_to t('favorite_articles.index.articles_list'), favorite_articles_path
+              .sm:text-2xl
+                = link_to t('favorite_articles.index.articles_list'), favorite_articles_path
             %li
-              = link_to t('defaults.top'), root_path
+              .sm:text-2xl
+                = link_to t('defaults.top'), root_path
             %li
-              = link_to t('user_sessions.new.logout'), logout_path, method: :delete
+              .sm:text-2xl
+                = link_to t('user_sessions.new.logout'), logout_path, method: :delete
