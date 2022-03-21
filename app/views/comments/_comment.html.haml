@@ -1,11 +1,11 @@
-%section.mt-1.grid.md:grid-cols-2.lg:grid-cols-4.gap-x-6.gap-y-8.mx-4
-  %article.bg-yellow-50.group.relative.rounded-lg.overflow-hidden.shadow-lg.transform.duration-200.h-32.mt-8
+%section.mt-1.lg:grid-cols-4.gap-x-6.gap-y-8.mx-4
+  %article.bg-yellow-50.group.relative.rounded-lg.overflow-hidden.shadow-lg.transform.duration-200.h-40.mt-8
     .flex-grow
       %ul
         %li
-          %h3.text-yellow-500.inline-flex.items-center.ml-4.mt-4
+          %h3.text-yellow-500.inline-flex.items-center.ml-4.mt-4.md:text-xl.sm:text-3xl
             = comment.user.name
-          %h2.text-gray-900.text-lg.title-font.font-medium.mb-3.ml-4
+          %h2.text-gray-900.text-lg.title-font.font-medium.mb-3.ml-4.md:text-xl.sm:text-3xl
             = comment.body
           .text-right.mr-8
             - if current_user.own?(comment)

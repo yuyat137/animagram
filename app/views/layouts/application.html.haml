@@ -7,6 +7,7 @@
     %meta{:content => "https://anima-gram.herokuapp.com/", :property => "og:url"}/
     %meta{:content => 'ペットの写真をシェアしたり、動物の写真を見て癒されよう🐈', :property => "og:description"}/
     %meta{:content => full_url_for('/assets/logo-ogp.png'), :property => "og:image"}/
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     %title
       = full_title(yield(:title))
     = csrf_meta_tags

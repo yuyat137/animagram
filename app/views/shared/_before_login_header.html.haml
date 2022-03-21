@@ -11,6 +11,8 @@
         %nav.globalMenuSp
           %ul
             %li
-              = link_to t('users.new.register'), new_user_path
+              .md:text-base.sm:text-3xl
+                = link_to t('users.new.register'), new_user_path
             %li
-              = link_to t('defaults.login'), login_path
+              .md:text-base.sm:text-3xl
+                = link_to t('defaults.login'), login_path

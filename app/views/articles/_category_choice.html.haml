@@ -1,12 +1,15 @@
-.bg-yellow-100.pt-10
+.bg-yellow-100.pt-10.text-center
   = form_with model: article, url: category_list_path, method: :get, local: true do |f|
-    .ml-8.mt-4
+    .ml-8.mt-4.md:text-2xl.sm:text-3xl
       %p= t('defaults.choice_category')
+    .text-base
       = f.collection_select :category_id, Category.all, :id, :display_name, { include_blank: "選択してください" }
+    .my-8
       = f.submit t('defaults.choice_category_button'), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded'
   - if articles.present?
     = render articles
-    = paginate articles
+    .md:text-base.sm:text-2xl
+      = paginate articles
   - else
     .bg-green-100.border.border-yellow-500.text-green-700.px-4.py-3.rounded.mx-10.my-10
       %p= t('defaults.no_article')

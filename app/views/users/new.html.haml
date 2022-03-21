@@ -3,20 +3,16 @@
   %main.flex-grow.bg-yellow-100.bg-white.rounded.overflow-hidden.shadow-lg.p-8.rounded-lg
     = form_with model: @user, local:true do |f|
       = render 'shared/error_messages', object: f.object
-      .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50
-        = f.label :name
-      .bg-white.rounded.border.border-green-500.mb-8
-        = f.text_field :name, :size=>"80"
-      .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50
-        = f.label :email
-      .bg-white.rounded.border.border-green-500.mb-8
-        = f.text_field :email, :size=>"80"
-      .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50
-        = f.label :password
-      .bg-white.rounded.border.border-green-500.mb-8
-        = f.password_field :password, :size=>"80"
-      .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50
-        = f.label :password_confirmation
-      .bg-white.rounded.border.border-green-500.mb-8
-        = f.password_field :password_confirmation, :size=>"80"
-      = f.submit t('.register'), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-auto flex justify-center'
+      .inputWithIcon.mt-8
+        = f.text_field :name, :placeholder => "YourName"
+        %i.fa.fa-user.fa-lg.fa-fw{"aria-hidden" => "true"}
+      .inputWithIcon.mt-8
+        = f.text_field :email, :placeholder => "Email"
+        %i.fa.fa-envelope.fa-lg.fa-fw{"aria-hidden" => "true"}
+      .inputWithIcon.mt-8
+        = f.password_field :password, :placeholder => "Password"
+        %i.fa.fa-key.fa-lg.fa-fw{"aria-hidden" => "true"}
+      .inputWithIcon.mt-8
+        = f.password_field :password, :placeholder => "Password again..."
+        %i.fa.fa-key.fa-lg.fa-fw{"aria-hidden" => "true"}
+      = f.submit t('.register'), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-auto flex justify-center mt-12'

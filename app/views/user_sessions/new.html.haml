@@ -2,11 +2,10 @@
 .flex.flex-col.min-h-screen
   %main.flex-grow.bg-yellow-100.bg-white.rounded.overflow-hidden.shadow-lg.p-8.rounded-lg.mx-8.my-8
     = form_with url: login_path, local:true do |f|
-      = f.label :email, User.human_attribute_name(:email)
-      .bg-white.rounded.border.border-green-500.mb-8
-        = f.text_field :email, :size=>"80"
-      .focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50.ml-12.py-6
-      = f.label :password, User.human_attribute_name(:password)
-      .bg-white.rounded.border.border-green-500.mb-8
-        = f.password_field :password, :size=>"80"
-      = f.submit t('.login'), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-auto flex justify-center'
+      .inputWithIcon.mt-8
+        = f.text_field :email, :placeholder => "Email"
+        %i.fa.fa-envelope.fa-lg.fa-fw{"aria-hidden" => "true"}
+      .inputWithIcon.mt-8
+        = f.password_field :password, :placeholder => "Password"
+        %i.fa.fa-key.fa-lg.fa-fw{"aria-hidden" => "true"}
+      = f.submit t('.login'), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-auto flex justify-center mt-12'
