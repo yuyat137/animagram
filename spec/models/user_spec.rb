@@ -17,7 +17,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  context 'name、email、passwordがあり、パスワードが3文字以上の場合' do
+  context 'name、email、passwordがあり、パスワードが8〜70文字、大文字と小文字と数字と特殊文字をそれぞれ1文字以上含まれている場合' do
     it '有効であること' do
       user = build(:user)
       expect(user).to be_valid
@@ -64,9 +64,9 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context 'passwordが3文字未満の場合' do
+  context 'passwordが8文字未満の場合' do
     it '無効であること' do
-      user = build(:user, password: '12')
+      user = build(:user, password: 'Psw-000')
       expect(user).to be_invalid
       expect(user.errors[:password])
     end

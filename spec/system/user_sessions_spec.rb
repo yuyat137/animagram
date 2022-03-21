@@ -8,7 +8,7 @@ RSpec.describe 'UserSessions', type: :system do
       it 'ログイン処理が成功する' do
         visit login_path
         fill_in 'email', with: user.email
-        fill_in 'password', with: 'password'
+        fill_in 'password', with: 'Password-222'
         click_button 'ログイン'
         expect(page).to have_content 'ログインしました'
         expect(current_path).to eq root_path
@@ -19,7 +19,7 @@ RSpec.describe 'UserSessions', type: :system do
       it 'ログイン処理に失敗する' do
         visit login_path
         fill_in 'email', with: ''
-        fill_in 'password', with: 'password'
+        fill_in 'password', with: 'Password-222'
         click_button 'ログイン'
         expect(page).to have_content 'ログインに失敗しました'
         expect(current_path).to eq login_path

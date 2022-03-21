@@ -10,8 +10,8 @@
   User.create(
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    password: '123456789',
-    password_confirmation: '123456789'
+    password: 'Password-222',
+    password_confirmation: 'Password-222'
   )
 end
 
