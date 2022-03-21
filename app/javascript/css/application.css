@@ -5,22 +5,6 @@
 @import "error404.css";
 @import "error500.css";
 
-/* PC用CSS */
-.sample div {
-  width: 300px;
-  display: flex;
-  justify-content: space-between;
-}
-
-/* SP用CSS */
-@media screen and (max-width: 740px) {
-  .sample div {
-    width: 100%;
-    flex-direction: column; /*並びを縦並びに*/
-    justify-content: normal; /*justify-contentを解除*/
-  }
-}
-
 .white-board {
   width: 80%;
   height: auto;
