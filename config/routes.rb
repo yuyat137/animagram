@@ -2,6 +2,7 @@
 #
 
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :users, only: %i[new create destroy]
   resources :articles do
     resources :comments, only: %i[create destroy], shallow: true
