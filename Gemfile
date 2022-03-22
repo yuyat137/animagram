@@ -38,6 +38,8 @@ gem 'fog-aws'
 gem 'meta-tags'
 gem 'faker'
 gem 'rails-i18n'
+gem 'rails_admin'
+gem 'cancancan'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
