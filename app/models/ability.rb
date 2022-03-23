@@ -14,9 +14,9 @@ class Ability
     #   end
     #
     # allow everyone to read everything
-    return unless user && user.admin?
+    return unless user&.admin?
 
-    can :access, :rails_admin       # only allow admin users to access Rails Admin
+    can :access, :rails_admin # only allow admin users to access Rails Admin
     can :read, :all
     # The first argument to `can` is the action you are giving the user
     # permission to do.
