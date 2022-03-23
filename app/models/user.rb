@@ -8,6 +8,7 @@
 #  crypted_password :string
 #  email            :string           not null
 #  name             :string           not null
+#  role             :integer          default(0), not null
 #  salt             :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
@@ -29,6 +30,8 @@ class User < ApplicationRecord
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validate :password_complexity
+
+  enum role: { general: 0, admin: 1 }
 
   def password_complexity
     return if password.blank? || password =~ /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/
